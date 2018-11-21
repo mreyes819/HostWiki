@@ -50,7 +50,7 @@ class SpaceTemplate extends React.Component {
               <h2>People at {spaceName}</h2>
               {info.contacts.map(contact => { 
                 return(
-                  <div className='person'>
+                  <div className='person' key={contact.id}>
                     <h3>{contact.position}</h3>
                     <p>{contact.name}</p>
                   </div>
@@ -60,20 +60,17 @@ class SpaceTemplate extends React.Component {
                   
 
 
-
-
             <div>
               <h2> {spaceName} Social Media </h2>
               {info.socialMediaLinks.map(social => { 
                 return(
-                  <div>
+                  <div key={social.id}>
                     <h3>{social.type}</h3>
                     <p>{social.url}</p>
                   </div>
                   )
               })}
             </div>
-
 
 
 
@@ -102,6 +99,7 @@ query($id: String!){
           description
         }
         addresses {
+          id
           type
           address {
             lon
@@ -109,10 +107,12 @@ query($id: String!){
           }
         }
         contacts {
+          id
           name
           position
         }
         socialMediaLinks {
+          id
           type
           url
         }
