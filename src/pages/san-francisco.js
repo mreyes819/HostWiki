@@ -1,13 +1,37 @@
 import React from 'react'
-import { graphql } from 'gatsby' //Link, StaticQuery, 
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-
+import './san-francisco.css'
 import Layout from '../components/layout'
+import Helmet from 'react-helmet'
 
 const SanFrancisco = ({data}) => (
   <Layout>
-    <h1>San Francisco</h1>
-    <Img fixed={data.allContentfulSpaceList.edges[6].node.entrancePhoto.fixed}/>
+    <Helmet
+        title={`Space Guides - San Francisco`}
+      >
+        <html lang="en" />
+    </Helmet>
+    <h1 className="city">San Francisco</h1>
+    <div className='space-list-container'>
+      {data.allContentfulSpace.edges.filter(space => space.node.city === 'San Francisco').map(space => { 
+        return (
+          <div key={space.node.id} className='button-container' >
+            <Link to={`san-francisco/${space.node.slug}`}>
+
+              <div className='title-box'>
+                <h2 className='space-link-title'>{space.node.spaceName}</h2>
+              </div>
+
+              <div className='entrance-photo'> 
+                <Img className='entrance-photo' fluid={space.node.heroPhoto.fluid}/>
+              </div>      
+
+            </Link>
+          </div>
+        )
+      })}
+    </div>
   </Layout>
 )
 
@@ -15,24 +39,21 @@ export default SanFrancisco
 
 
 export const query = graphql`
-	query {
-	  allContentfulSpaceList {
-	    edges {
-	      node {
-	        space
-	        city
-		    entrancePhoto {
-	          fixed(width:400) {
-	            src
-	            width
-	            height
-	            srcSet
-	          }
-		    }
-	      }
-	    }
-	  }
-	}
-
-`
-
+  query {
+  allContentfulSpace {
+    edges {
+      node {
+        spaceName
+        city
+        slug
+        id
+        heroPhoto {
+          fluid(maxWidth: 1200, maxHeight: 600) {
+            ...GatsbyContentfulFluid
+          }
+          title
+        }
+      }
+    }
+  }
+}	`

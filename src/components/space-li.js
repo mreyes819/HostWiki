@@ -1,22 +1,13 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import './space-li.css'
 
 
 const SpaceListItem = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        placeholderImage: file(relativePath: {eq: "Spacious_MillingRoom1080.jpeg"}) {
-          childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
-  />
+  <li className='space-item-container'>
+    <h2 className='space-item-location'> Space Location </h2>
+    <img />
+  </li>
 )
 export default SpaceListItem

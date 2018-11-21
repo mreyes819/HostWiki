@@ -1,0 +1,76 @@
+
+.city {
+    margin-left: 50px;
+    margin-top: 90px;
+}
+
+.space-list-container {
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: column;
+    
+}
+
+.button-container {
+    position: relative;
+    text-decoration: none;
+    margin: 5px;
+    height: 225px;
+    width: 32%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.2);
+    background-color: black;
+}
+
+
+
+.entrance-photo {
+    position: absolute;
+    height: 225px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.2);
+    opacity: .8;
+}
+
+
+.button-container:hover .entrance-photo{
+    opacity: 1;
+}
+
+
+.title-box {
+    font-size: 1.75em;
+    position: absolute;
+    text-align: center;
+    bottom: 5px;
+    right: 3%;
+    z-index: 2;
+    color: white;
+}
+
+.space-link-title {
+    z-index: 2;
+    margin: 0;
+    font-size: 1em;
+}
+
+
+
+
+@media only screen and (max-width: 1200px) {
+    .button-container {
+        width: 47%;
+    }
+}
+
+@media only screen and (max-width: 705px) {
+    .button-container {
+        width: 44%;
+        height: 130px;
+    }
+    .entrance-photo {
+        height: 130px;
+    }
+}

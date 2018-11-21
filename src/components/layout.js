@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from './header'
 import Navigation from './navigation'
 import './layout.css'
 
@@ -35,9 +34,9 @@ const Layout = ({ children }) => (
 
         <div style={{
             margin: '0 auto',
-            maxWidth: 1200,
+            maxWidth: 1400,
             padding: '0px 1.0875rem 1.45rem',
-            marginTop: 70,
+            marginTop: '100px',
           }}
         >
           {children}

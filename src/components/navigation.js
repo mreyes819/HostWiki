@@ -19,7 +19,7 @@ const Navigation = ({ siteTitle }) => (
             <Link to="/404" className="nav-link">Apps & Tools</Link>
           </div>
         </div>         
-
+        
 
         <div className="dropdown">
           <button className="dropbtn">Support Resources</button>

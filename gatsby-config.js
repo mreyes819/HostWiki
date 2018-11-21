@@ -20,7 +20,7 @@ module.exports = {
         short_name: 'Wiki',
         start_url: '/',
         display: 'minimal-ui',
-        icon: 'src/images/initials.png', // This path is relative to the root of the site.
+        icon: 'src/images/Spacious-Logo.png', // This path is relative to the root of the site.
       },
     },
     {
