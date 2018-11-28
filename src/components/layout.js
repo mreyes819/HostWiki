@@ -28,7 +28,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Navigation siteTitle={data.site.siteMetadata.title} /> 
+        <Navigation /> 
 
 
 

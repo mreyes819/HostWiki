@@ -1,0 +1,123 @@
+.page-container { 
+    display: flex;
+    width: 100vw;
+    margin: 0 auto;
+    height: 100%;
+    margin-top: 30px;
+    max-width: 1200px;  
+}
+
+/* The sidebar menu */
+.sidenav-container {
+    height: 92%; /* Full-height: remove this if you want "auto" height */
+    margin-top: 70px;
+    width: 30vw;
+    min-width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: rgb(247,247,247);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    border-left: 1px solid lightgrey;   
+    margin-right: 10px;
+    padding-bottom: 20px;
+}
+
+
+
+
+/* Style page content */
+.main {
+    margin-top: 70px;
+    display: flex;  
+    margin-left: 15px;
+    width: 65%;
+    flex-direction: column;
+}
+    
+.sidenav-layout { 
+    font-size: 15px;
+    margin-left: 1vw;
+    margin-right: 10px;
+    height: 100%;
+}
+
+.sidenav-layout ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.sidenav-layout li { 
+    text-transform: capitalize;
+    list-style-type: none;
+    margin-left: 15px;
+    padding-left: 15px;
+    margin-bottom: -5px;
+}
+
+.sidenav-layout li:last-child { 
+    
+    margin-bottom: 5px;
+}
+
+
+
+.main h2,  .sidenav-layout h3{ 
+    font-size: 16pt;
+    margin-bottom: -1px;
+    padding: 0;   
+    margin-left: 15px; 
+}
+
+.main h3 { 
+    
+    margin: 5;
+    padding: 0;
+    margin-left: 15px;
+}
+
+section h3{ 
+    font-size: 14pt;
+}
+
+
+.main section { 
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+.about-photos-container { 
+    height: 35vh;
+    border: 1px solid grey;
+    background-color: grey;
+
+}   
+
+
+
+@media only screen and (max-width: 650px) {
+    .sidenav-container {
+        display: none;
+    }
+    .main { 
+      width: 100%;
+      margin-left: 15px;
+      margin-right: 10px;
+    }
+}
+
+article { 
+    
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+
+/* Section Components */
+

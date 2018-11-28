@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import './navigation.css'
 
-const Navigation = ({ siteTitle }) => (
+const Navigation = () => (
   
     <div className = "nav-container" >
       <nav className = "nav-layout" >

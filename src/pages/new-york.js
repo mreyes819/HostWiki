@@ -29,9 +29,6 @@ const NewYork = ({data}) => (
             <div className='container-shadow'> 
             </div>
 
-
-
-
           </Link>
         )
       })}
