@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: 'Spacious',
+    title: `Spacious`,
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',    
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-sharp`,    
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,11 +17,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Host Wiki Guide',
-        short_name: 'Wiki',
-        start_url: '/',
-        display: 'minimal-ui',
-        icon: 'src/images/Spacious-Logo.png', // This path is relative to the root of the site.
+        name: `Host Wiki Guide`,
+        short_name: `Wiki`,
+        start_url: `/`,
+        display: `minimal-ui`,
+        icon: `src/images/Spacious-Logo.png`, // This path is relative to the root of the site.
       },
     },
     {

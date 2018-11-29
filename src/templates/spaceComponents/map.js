@@ -8,23 +8,25 @@ class MapComponent extends React.Component {
     super(props);
     this.state = {
       geo: {},
-      place_id: '', 
+      place_id: 'ChIJIQBpAG2ahYAR_6128GcTUEo', 
       address: ''
     }
   }
 
   componentDidMount() { 
     axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.props.defaultCenter.lat},${this.props.defaultCenter.lng}&key=AIzaSyDAs1iNCU5Ovq46wkjGa8q3PSDQMpOvXrg`).then(res => { 
-      
+
       if(res.data.results) { 
         this.setState({
           place_id: res.data.results[0].place_id, 
           address: res.data.results[0].formatted_address
         })
       }
-      
-      
     })
+  }
+
+  componentWillUnmount() { 
+
   }
 
   render() { 
@@ -35,7 +37,6 @@ class MapComponent extends React.Component {
           width="100%" 
           height="35vh" 
           frameborder="0" 
-          style="border:0" 
           position='relative'
           allowfullscreen>
         </Iframe>
