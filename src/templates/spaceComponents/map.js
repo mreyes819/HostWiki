@@ -25,10 +25,6 @@ class MapComponent extends React.Component {
     })
   }
 
-  componentWillUnmount() { 
-
-  }
-
   render() { 
     return(
       <div> 

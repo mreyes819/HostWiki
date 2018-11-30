@@ -1,26 +1,55 @@
 import React from "react"
 import { graphql } from "gatsby" // Link, 
 import * as PropTypes from "prop-types"
-import Img from "gatsby-image"
 import Helmet from 'react-helmet'
 import './space.css'
 import Navigation from '../components/navigation';
-import MapComponent from './spaceComponents/map';
-import Typeform from './spaceComponents/typeform';
+import UpdatesEvents from './UpdatesEvents';
+import AboutPhotos from './spaceComponents/AboutPhotos';
+import Address from './spaceComponents/Address';
+import Systems from './spaceComponents/SpaceSystems';
+import Messages from './spaceComponents/Messages'
+// import Typeform from './spaceComponents/typeform';
 
 const propTypes = {
   data: PropTypes.object.isRequired,
 }
 
 class SpaceTemplate extends React.Component {
+
+
   render() {
     const space = this.props.data.contentfulSpace;
+    let updates, aboutPhotos, aboutDescription, aboutAddress, systems, messages;
 
+
+
+    if(space.updates) {
+      updates = <UpdatesEvents updates={space.updates} />
+    } if (!space.updates) { 
+      updates = <section> </section>
+    } if (space.stockPhotos) { 
+      aboutPhotos = <AboutPhotos photos={space.stockPhotos} /> 
+    } if (!space.stockPhotos) { 
+      aboutPhotos = <section> </section>
+    } if (!space.aboutSpace) { 
+      aboutDescription = <p> </p>
+    } if (space.aboutSpace) { 
+      aboutDescription = <p>{space.aboutSpace.description.description}</p>
+    } if (space.aboutSpace) { 
+      aboutAddress = <Address addresses={space.aboutSpace.addresses} /> 
+    } if (space.systems2) { 
+      systems = <Systems systems={space.systems2} />
+    } if (space.messages) { 
+      messages = <Messages messages={space.messages} /> 
+    }
+
+    
     return (
 
       <div>
 
-        <Helmet title={`Space Guide -  ${space.spaceName}`}>
+        <Helmet title={`Space Guide - ${space.spaceName}`}>
           <html lang="en" />
         </Helmet>
 
@@ -33,18 +62,8 @@ class SpaceTemplate extends React.Component {
 
             <article className='updates'>
               <h2> Updates & Events </h2>
-              <section>
-                {space.updates.map(update => { 
-                  // id title message
-                  return (
-                    <div key={update.id}>
-                      <h3>{update.title}</h3>
-                      <p>{update.message.message}</p>
-                    </div>
-                  )
-                })}                
 
-              </section>
+              {updates}
             </article>
 
             <article className='schedule'>
@@ -52,42 +71,18 @@ class SpaceTemplate extends React.Component {
             </article>
 
 
-
-
-
             <article className='overview'>
               <h2> About </h2>
-
-              <section>
-                <div className='about-photos-container'> 
-                  {space.stockPhotos.map(photo => { 
-                    return (
-                      <Img fluid={photo.fluid}/>
-                    )
-                  })}
-                </div>
-              </section>
+              {aboutPhotos}
 
               <section className='Description'>
                 <h3> Description </h3>
-                <p>{space.aboutSpace.description.description}</p>
+                {aboutDescription}
               </section>
 
               <section className='address'>
-                <div>
-                  {space.aboutSpace.addresses.filter(address => address.type === "Main Entrance").map(address => { 
-                    return (
-
-                      <div key={address.id}> 
-                        <h3> {address.type} </h3>
-                        
-                        <MapComponent defaultCenter={{lat: address.street.lat, lng: address.street.lon}} />
-                      </div>
-                    )
-                  })
-                  
-                  }
-                </div>
+                <h3> Address </h3>
+                {aboutAddress}
               </section>
 
 
@@ -96,58 +91,20 @@ class SpaceTemplate extends React.Component {
 
             <article className='systems-operations'>
               <h2>System Location & Operation</h2>
-              <section>
-                {space.systems2.map(system => { 
-                  return (
-                    <div key={system.id}> 
-                      <h2>{system.spaceSystems}</h2>
-                      {system.steps.map(step =>{ 
-
-                        return(
-                          <div key={step.id}>
-                            <h3>{step.title}</h3>
-                            {step.photos.map(photo => { 
-                              console.log(photo.description)
-                              return (
-                                <div> 
-                                  <Img fluid={photo.fluid}/>
-                                  <p> {photo.description} </p>
-                                </div>
-                              )
-                            })}
-                            
-                          </div>
-                        )
-                      })}
-                    </div>
-                  )
-                })}
-              </section>
+              {systems}
             </article>
 
             <article>
               <h2>Forms & Checklists </h2>
               <section className='typeform'>
-                <Typeform />
+
 
               </section>
             </article>
 
             <article>
               <h2>Messages</h2>
-              <section>
-              <div> 
-                {space.messages.map(message => {
-                  return (
-                  <div key={message.id}>
-                  <h3>{message.title}</h3>
-                  <p>{message.timeMilitary}</p>
-                  <p>{message.message.message}</p>
-                  </div>
-                  )
-                })}
-              </div>
-              </section>
+              {messages}
             </article>            
           </div>
 
@@ -179,7 +136,7 @@ class SpaceTemplate extends React.Component {
                 <li> Website & Social Media </li> 
               </ul>
 
-              <h3> System Location & Operation</h3>
+              <h3> System, Location, and Operation</h3>
               <ul>  
                 <li> Air Conditioning </li>
                 <li> Alarm </li>
@@ -207,9 +164,9 @@ class SpaceTemplate extends React.Component {
 
               <h3> Messages </h3>
               <ul>  
-                <li> Lunch </li>
-                <li> Migrate </li>
-                <li> Last Call </li> 
+                <li> 11:30am Lunch </li>
+                <li> 3:30pm Migrate </li>
+                <li> 4:30pm Last Call </li> 
                 <li> Closing</li> 
               </ul>                
             </div>
@@ -231,6 +188,7 @@ query($id: String!){
     id
     spaceName
     stockPhotos{
+      id
       fluid(maxWidth: 1200, maxHeight: 600) {
         ...GatsbyContentfulFluid
       }
@@ -239,6 +197,7 @@ query($id: String!){
       id
       spaceSystems
       steps{
+        id
         title
         photos{
           title
