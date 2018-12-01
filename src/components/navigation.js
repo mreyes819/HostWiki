@@ -13,10 +13,10 @@ const Navigation = () => (
         <div className="dropdown" id="push-right">
           <button className="dropbtn">Onboarding</button>
           <div className="dropdown-content">
-            <Link to="/404" className="nav-link">Employee Handbook</Link>
-            <Link to="/404" className="nav-link">Orientation</Link>
-            <Link to="/404" className="nav-link">Glossary</Link>
-            <Link to="/404" className="nav-link">Apps & Tools</Link>
+            <Link to="/404" className="nav-link"> 404 - Employee Handbook</Link>
+            <Link to="/404" className="nav-link"> 404 - Orientation</Link>
+            <Link to="/404" className="nav-link"> 404 - Glossary</Link>
+            <Link to="/404" className="nav-link"> 404 - Apps & Tools</Link>
           </div>
         </div>         
         
@@ -24,11 +24,11 @@ const Navigation = () => (
         <div className="dropdown">
           <button className="dropbtn">Support Resources</button>
           <div className="dropdown-content">
-            <Link to="/404" className="nav-link">Issue Escalation Chart</Link>
-            <Link to="/404" className="nav-link">Internal Gesture Guide</Link>
-            <Link to="/404" className="nav-link">Member Incident Procedure</Link>
-            <Link to="/404" className="nav-link">Technical Support</Link>
-            <Link to="/404" className="nav-link">FAQ</Link>
+            <Link to="/404" className="nav-link"> 404 - Issue Escalation Chart</Link>
+            <Link to="/404" className="nav-link"> 404 - Internal Gesture Guide</Link>
+            <Link to="/404" className="nav-link"> 404 - Member Incident Procedure</Link>
+            <Link to="/404" className="nav-link"> 404 - Technical Support</Link>
+            <Link to="/404" className="nav-link"> 404 - FAQ</Link>
           </div>
         </div>      
 

@@ -19,7 +19,6 @@
     right: 0;
     background-color: rgb(247,247,247);
     overflow-x: hidden; /* Disable horizontal scroll */
-    border-left: 1px solid lightgrey;   
     margin-right: 10px;
     padding-bottom: 20px;
 }
@@ -50,9 +49,6 @@
     border: 0;
 }
 
-.schedule, .systems-operations { 
-    min-height: 50vh;
-}
 
 
 
@@ -74,7 +70,7 @@
 
 .main h2,  .sidenav-layout h3{ 
     font-size: 16pt;
-    margin-bottom: -1px;
+    margin-bottom: -3px;
     padding: 0;   
     margin-left: 15px; 
 }
@@ -88,24 +84,61 @@
 
 section h3{ 
     font-size: 14pt;
+
 }
-
-
 .main section { 
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 10px;
 }
 
-.about-photos-container { 
-    min-height: 35vh;
-    border: 1px solid grey;
-    background-color: grey;
 
-}   
-
+.main h2 { 
+    font-size: 1.5rem;
+    z-index: 5;
+}
 
 
+.section-component { 
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+
+.section-component h4 { 
+    margin-bottom: 5px;
+
+}
+
+.section-component h3 { 
+    margin-bottom: 5px;
+}
+
+.section-component p { 
+    margin-bottom: 10px;
+}
+
+.section-component{ 
+    border-bottom: 5px solid darkgrey;
+}
+
+.section-component p:last-child { 
+    border-bottom: 1px solid white;
+
+
+}
+
+.section-systems h2 { 
+    font-size: 1.75rem;
+    
+}
+
+.section-systems h4 { 
+    font-size: 1.15rem;
+}
 
 @media only screen and (max-width: 650px) {
     .sidenav-container {
@@ -119,13 +152,13 @@ section h3{
 }
 
 .typeform { 
-    height: 50vh;
+    /*height: 50vh;*/
 }
 
 article { 
-    
+    background-color: lightgrey;
     border-radius: 10px;
-    border: 1px solid lightgrey;
+    
     margin-bottom: 20px;
     padding: 5px;
 }

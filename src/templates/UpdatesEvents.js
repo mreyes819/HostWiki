@@ -8,7 +8,7 @@ class UpdatesEvents extends React.Component {
       <section>
         {this.props.updates.map(update => { 
           return (
-            <div key={update.id}>
+            <div className='section-component' key={update.id}>
               <h3>{update.title}</h3>
               <p>{update.message.message}</p>
             </div>

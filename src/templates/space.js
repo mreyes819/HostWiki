@@ -30,17 +30,17 @@ class SpaceTemplate extends React.Component {
       updates = <section> </section>
     } if (space.stockPhotos) { 
       aboutPhotos = <AboutPhotos photos={space.stockPhotos} /> 
-    } if (!space.stockPhotos) { 
+    } if (!space.stockPhotos) {
       aboutPhotos = <section> </section>
-    } if (!space.aboutSpace) { 
+    } if (!space.aboutSpace) {
       aboutDescription = <p> </p>
-    } if (space.aboutSpace) { 
+    } if (space.aboutSpace) {
       aboutDescription = <p>{space.aboutSpace.description.description}</p>
-    } if (space.aboutSpace) { 
+    } if (space.aboutSpace) {
       aboutAddress = <Address addresses={space.aboutSpace.addresses} /> 
-    } if (space.systems2) { 
+    } if (space.systems2) {
       systems = <Systems systems={space.systems2} />
-    } if (space.messages) { 
+    } if (space.messages) {
       messages = <Messages messages={space.messages} /> 
     }
 
@@ -60,19 +60,21 @@ class SpaceTemplate extends React.Component {
           <div className='main'>
             <h1 className='space'> {space.spaceName} </h1>
 
+            <h2> Updates & Events </h2>
             <article className='updates'>
-              <h2> Updates & Events </h2>
 
               {updates}
             </article>
 
+
+            <h2> Schedule</h2>
             <article className='schedule'>
-              <h2> Schedule</h2>
+              
             </article>
 
 
+            <h2> About </h2>
             <article className='overview'>
-              <h2> About </h2>
               {aboutPhotos}
 
               <section className='Description'>
@@ -89,21 +91,20 @@ class SpaceTemplate extends React.Component {
             </article>
 
 
+            <h2>System Location & Operation</h2>
             <article className='systems-operations'>
-              <h2>System Location & Operation</h2>
               {systems}
             </article>
 
+            <h2>Forms & Checklists </h2>
             <article>
-              <h2>Forms & Checklists </h2>
               <section className='typeform'>
-
-
+                 {/*  <Typeform url={SPACE.URL}/>  */}
               </section>
             </article>
 
+            <h2>Messages</h2>
             <article>
-              <h2>Messages</h2>
               {messages}
             </article>            
           </div>
@@ -158,8 +159,9 @@ class SpaceTemplate extends React.Component {
               <h3> Forms & Checklists </h3>
               <ul>  
                 <li> Opening </li>
-                <li> Notable Interaction </li>
                 <li> Closing </li>
+                <li> Notable Interaction </li>
+                <li> Updates & Events </li>
                 <li> Inventory </li>
               </ul>
 
