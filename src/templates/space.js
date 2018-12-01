@@ -137,7 +137,8 @@ class SpaceTemplate extends React.Component {
               </ul>
 
               <h3> System, Location, and Operation</h3>
-              <ul>  
+              <ul> 
+                <li> Space Access </li>
                 <li> Air Conditioning </li>
                 <li> Alarm </li>
                 <li> Audio </li> 
