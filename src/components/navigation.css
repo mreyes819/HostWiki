@@ -1,7 +1,7 @@
 .nav-container {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-    height: 70px;
+    height: 7vh;
     border-bottom: 1px solid lightgrey;
     position: fixed;
     top: 0;
@@ -37,7 +37,7 @@
     /*border: 1px solid red;*/
     /*!!!!!!!!!!!!*/
 }
-
+gi
 .nav-link:hover {
     color: grey;
 }
@@ -79,7 +79,7 @@
     opacity: .90;
     display: none;
     position: absolute;
-    top: 69px;
+    top: 7vh;
     min-width: 120px;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;

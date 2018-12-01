@@ -9,8 +9,8 @@
 
 /* The sidebar menu */
 .sidenav-container {
-    height: 92%; /* Full-height: remove this if you want "auto" height */
-    margin-top: 70px;
+    height: 93vh; /* Full-height: remove this if you want "auto" height */
+    margin-top: 7vh;
     width: 30vw;
     min-width: 200px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
@@ -31,8 +31,9 @@
     margin-top: 70px;
     display: flex;  
     margin-left: 15px;
-    width: 65%;
+    width: 69.5%;
     flex-direction: column;
+    
 }
     
 .sidenav-layout { 
@@ -50,7 +51,9 @@
 }
 
 
-
+.system-photo { 
+    max-height: 400px;
+}
 
 
 .sidenav-layout li { 
@@ -70,9 +73,10 @@
 
 .main h2,  .sidenav-layout h3{ 
     font-size: 16pt;
-    margin-bottom: -3px;
+    margin-bottom: 1px;
     padding: 0;   
     margin-left: 15px; 
+
 }
 
 .main h3 { 
@@ -122,7 +126,7 @@ section h3{
 }
 
 .section-component{ 
-    border-bottom: 5px solid darkgrey;
+    border-bottom: 5px solid grey;
 }
 
 .section-component p:last-child { 
@@ -156,7 +160,7 @@ section h3{
 }
 
 article { 
-    background-color: lightgrey;
+    background-color: darkgrey;
     border-radius: 10px;
     
     margin-bottom: 20px;

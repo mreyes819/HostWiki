@@ -5,7 +5,7 @@ class AboutPhotos extends React.Component {
 
   render() {
     return (
-      <section>
+      <section >
         {this.props.photos.map(photo => { 
           return (
             <Img fluid={photo.fluid} key={photo.id}/>

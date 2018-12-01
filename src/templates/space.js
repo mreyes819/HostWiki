@@ -91,7 +91,7 @@ class SpaceTemplate extends React.Component {
             </article>
 
 
-            <h2>System Location & Operation</h2>
+            <h2>System, Location, and Operation</h2>
             <article className='systems-operations'>
               {systems}
             </article>
@@ -206,7 +206,7 @@ query($id: String!){
           title
           description
           id
-          fluid(maxWidth:800, ) {
+          fluid(maxWidth:800) {
             ...GatsbyContentfulFluid
           } 
         }  

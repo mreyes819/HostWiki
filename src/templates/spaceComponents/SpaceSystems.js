@@ -18,9 +18,9 @@ class Systems extends React.Component {
                     
                     {step.photos.map(photo => { 
                       return (
-                        <div key={photo.id} className='system-photo'> 
+                        <div key={photo.id} > 
                           <h4>{photo.title}</h4>
-                          <Img fluid={photo.fluid} />
+                          <Img fluid={photo.fluid} className='system-photo' />
                           <p> {photo.description} </p>
                         </div>
                       )
