@@ -5,9 +5,11 @@ import Helmet from 'react-helmet'
 import './space.css'
 import Navigation from '../components/navigation';
 import UpdatesEvents from './UpdatesEvents';
+import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
 import AboutPhotos from './spaceComponents/AboutPhotos';
 import Address from './spaceComponents/Address';
 import Systems from './spaceComponents/SpaceSystems';
+import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
 import Messages from './spaceComponents/Messages'
 // import Typeform from './spaceComponents/typeform';
 
@@ -20,12 +22,14 @@ class SpaceTemplate extends React.Component {
 
   render() {
     const space = this.props.data.contentfulSpace;
-    let updates, aboutPhotos, aboutDescription, aboutAddress, systems, messages;
+    let updates, aboutPhotos, aboutDescription, aboutAddress, 
+    systems, messages, systemsMenuLink, updateEventMenuLink;
 
 
 
     if(space.updates) {
       updates = <UpdatesEvents updates={space.updates} />
+      updateEventMenuLink = <UpdateEventMenu events={space.updates}/>
     } if (!space.updates) { 
       updates = <section> </section>
     } if (space.stockPhotos) { 
@@ -40,11 +44,11 @@ class SpaceTemplate extends React.Component {
       aboutAddress = <Address addresses={space.aboutSpace.addresses} /> 
     } if (space.systems2) {
       systems = <Systems systems={space.systems2} />
+      systemsMenuLink = <SystemsMenu systems={space.systems2} />
     } if (space.messages) {
       messages = <Messages messages={space.messages} /> 
     }
 
-    
     return (
 
       <div>
@@ -61,7 +65,7 @@ class SpaceTemplate extends React.Component {
 
             <h1> {space.spaceName} </h1>
 
-            <section>
+            <section className='updates-events'>
             {updates}
             </section>
 
@@ -72,7 +76,9 @@ class SpaceTemplate extends React.Component {
 
 
             <article className='overview'>
-              <h2> About {space.spaceName} </h2>
+              <h2>
+                About {space.spaceName} 
+              </h2>
               {aboutPhotos}
 
               <section className='description'>
@@ -114,11 +120,11 @@ class SpaceTemplate extends React.Component {
 
           <div className='sidenav-container'>
             <div className='sidenav-layout'>
-              <h2 className='space'> Operations </h2>
-              <h3> Updates & Events </h3>
+              <h1 className='space'> Operations </h1>
+              <h2> Updates & Events </h2>
+              {updateEventMenuLink}
 
-
-              <h3> Schedule</h3>
+              <h2> Schedule</h2>
               <ul>
                 <li>Opening Operations</li>
                 <li>Day Operations</li>
@@ -126,7 +132,10 @@ class SpaceTemplate extends React.Component {
               </ul>
 
 
-              <h3> About {space.spaceName} </h3>
+              <h2> About {space.spaceName} </h2>
+
+
+
               <ul>  
                 <li> Photos </li>
                 <li> Description </li>
@@ -137,26 +146,10 @@ class SpaceTemplate extends React.Component {
                 <li> Website & Social Media </li> 
               </ul>
 
-              <h3> System, Location, and Operation</h3>
-              <ul> 
-                <li> Space Access </li>
-                <li> Air Conditioning </li>
-                <li> Alarm </li>
-                <li> Audio </li> 
-                <li> Blinds </li>
-                <li> Coffee Bar Setup </li>
-                <li> Coffee Machine </li>
-                <li> Glassware </li> 
-                <li> Lights </li>
-                <li> Phone </li> 
-                <li> Ice Machine, Bucket and Scoop </li>
-                <li> Washing Machine </li>
-                <li> Water </li> 
-                <li> WiFi </li>
+              <h2> System, Location, and Operation</h2>
+               {systemsMenuLink}
 
-              </ul>
-
-              <h3> Forms & Checklists </h3>
+              <h2> Forms & Checklists </h2>
               <ul>  
                 <li> Opening </li>
                 <li> Closing </li>
@@ -165,7 +158,7 @@ class SpaceTemplate extends React.Component {
                 <li> Inventory </li>
               </ul>
 
-              <h3> Messages </h3>
+              <h2> Messages </h2>
               <ul>  
                 <li> 11:30am Lunch </li>
                 <li> 3:30pm Migrate </li>

@@ -1,7 +1,9 @@
 .page-container { 
-    margin: 0 auto;
-    margin-top: 7vh;
+    margin: 7vh auto;
+    
     width: 77vw; 
+    border: 1px solid white;
+    z-index: 4000;
 }
 
 /* The sidebar menu */
@@ -164,6 +166,9 @@ article {
     padding: 5px;
 }
 
+h3{ position:relative; }
+h3 span{ position:absolute; top:-7vh;}
+h2 span{ position:absolute; top:-9vh;}
 
 /* Section Components */
 
