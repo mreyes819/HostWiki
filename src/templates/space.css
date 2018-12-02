@@ -29,7 +29,7 @@
     display: flex;  
     width: 57vw;
     flex-direction: column;
-    
+
 }
     
 .sidenav-layout { 
@@ -68,17 +68,17 @@
 
 .main h2,  .sidenav-layout h3{ 
     margin-top: -3px;
-    font-size: 16pt;
+    font-size: 1.5rem;
     margin-bottom: 1px;
     padding: 0;   
-    margin-left: 15px; 
+    
 
 }
 
 .main h3 { 
     margin: 0;
     padding: 0;
-    margin-left: 15px;
+    
 }
 
 section h3{ 
@@ -95,7 +95,7 @@ section h3{
 
 
 .main h2 { 
-    font-size: 1.5rem;
+    
     z-index: 5;
 }
 
@@ -142,8 +142,7 @@ section h3{
 
 @media only screen and (max-width: 650px) {
     .page-container { 
-        width: 100vw; 
-        border: 1px solid blue;
+        width: 95vw; 
     }    
     .sidenav-container {
         display: none;

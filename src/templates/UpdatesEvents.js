@@ -5,8 +5,8 @@ class UpdatesEvents extends React.Component {
 
   render() {
     return (
-      <section className='schedule'>
-        <h2> Schedule</h2>
+      <div className='schedule'>
+        <h2> Updates & Events</h2>
         {this.props.updates.map(update => { 
           return (
             <div className='section-component' key={update.id}>
@@ -15,7 +15,7 @@ class UpdatesEvents extends React.Component {
             </div>
           )
         })}                
-      </section>
+      </div>
     )
   }
 }

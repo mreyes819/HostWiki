@@ -59,11 +59,12 @@ class SpaceTemplate extends React.Component {
 
           <div className='main'>
 
-      
             <h1> {space.spaceName} </h1>
 
+            <section>
             {updates}
-    
+            </section>
+
             <section className='schedule'>
               {/*Schedule*/}
             </section>
@@ -71,16 +72,16 @@ class SpaceTemplate extends React.Component {
 
 
             <article className='overview'>
-              <h2> About </h2>
+              <h2> About {space.spaceName} </h2>
               {aboutPhotos}
 
               <section className='description'>
-                <h3> Description </h3>
+                <h2> Description </h2>
                 {aboutDescription}
               </section>
 
               <section className='address'>
-                <h3> Address </h3>
+                <h2> Address </h2>
                 {aboutAddress}
               </section>
             </article>

@@ -11,7 +11,7 @@ class Systems extends React.Component {
 
           return (
             <div key={system.id} > 
-              <h2>{system.spaceSystems}</h2>
+              <h3>{system.spaceSystems}</h3>
               {system.steps.map(step =>{ 
                 return(
                   <div key={step.id} className='section-component'>
