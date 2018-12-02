@@ -58,26 +58,23 @@ class SpaceTemplate extends React.Component {
         <div className='page-container'>
 
           <div className='main'>
-            <h1 className='space'> {space.spaceName} </h1>
 
-            <h2> Updates & Events </h2>
-            <article className='updates'>
+      
+            <h1> {space.spaceName} </h1>
 
-              {updates}
-            </article>
-
-
-            <h2> Schedule</h2>
-            <article className='schedule'>
-              
-            </article>
+            {updates}
+    
+            <section className='schedule'>
+              {/*Schedule*/}
+            </section>
 
 
-            <h2> About </h2>
+
             <article className='overview'>
+              <h2> About </h2>
               {aboutPhotos}
 
-              <section className='Description'>
+              <section className='description'>
                 <h3> Description </h3>
                 {aboutDescription}
               </section>
@@ -86,15 +83,17 @@ class SpaceTemplate extends React.Component {
                 <h3> Address </h3>
                 {aboutAddress}
               </section>
-
-
             </article>
 
 
-            <h2>System, Location, and Operation</h2>
-            <article className='systems-operations'>
+
+            <section className='systems-operations'>
+              <h2>System, Location, and Operation</h2>
               {systems}
-            </article>
+            </section>
+
+
+
 
             <h2>Forms & Checklists </h2>
             <article>

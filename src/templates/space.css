@@ -1,10 +1,7 @@
 .page-container { 
-    display: flex;
-    width: 100vw;
     margin: 0 auto;
-    height: 100%;
-    margin-top: 30px;
-    max-width: 1200px;  
+    margin-top: 7vh;
+    width: 77vw; 
 }
 
 /* The sidebar menu */
@@ -20,7 +17,7 @@
     background-color: rgb(247,247,247);
     overflow-x: hidden; /* Disable horizontal scroll */
     margin-right: 10px;
-    padding-bottom: 20px;
+    
 }
 
 
@@ -28,19 +25,16 @@
 
 /* Style page content */
 .main {
-    margin-top: 70px;
+    margin-top: 7vh;
     display: flex;  
-    margin-left: 15px;
-    width: 69.5%;
+    width: 57vw;
     flex-direction: column;
     
 }
     
 .sidenav-layout { 
-    font-size: 15px;
+    font-size: .85em;
     margin-left: 1vw;
-    margin-right: 10px;
-    height: 100%;
 }
 
 .sidenav-layout ul {
@@ -50,28 +44,30 @@
     border: 0;
 }
 
-
-.system-photo { 
-    max-height: 400px;
-}
-
-
 .sidenav-layout li { 
     text-transform: capitalize;
     list-style-type: none;
     margin-left: 15px;
     padding-left: 15px;
     margin-bottom: -5px;
+
 }
 
+.system-photo { 
+    max-height: 400px;
+
+}
+
+
+
 .sidenav-layout li:last-child { 
-    
     margin-bottom: 5px;
 }
 
 
 
 .main h2,  .sidenav-layout h3{ 
+    margin-top: -3px;
     font-size: 16pt;
     margin-bottom: 1px;
     padding: 0;   
@@ -80,8 +76,7 @@
 }
 
 .main h3 { 
-    
-    margin: 5;
+    margin: 0;
     padding: 0;
     margin-left: 15px;
 }
@@ -91,9 +86,11 @@ section h3{
 
 }
 .main section { 
+
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 10px;
+
 }
 
 
@@ -126,11 +123,10 @@ section h3{
 }
 
 .section-component{ 
-    border-bottom: 5px solid grey;
+    
 }
 
 .section-component p:last-child { 
-    border-bottom: 1px solid white;
 
 
 }
@@ -145,13 +141,15 @@ section h3{
 }
 
 @media only screen and (max-width: 650px) {
+    .page-container { 
+        width: 100vw; 
+        border: 1px solid blue;
+    }    
     .sidenav-container {
         display: none;
     }
     .main { 
       width: 100%;
-      margin-left: 15px;
-      margin-right: 10px;
     }
 }
 

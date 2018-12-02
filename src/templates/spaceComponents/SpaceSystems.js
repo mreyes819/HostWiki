@@ -6,7 +6,7 @@ class Systems extends React.Component {
 
   render() {
     return (
-      <section className='section-systems'>
+      <div className='systems'>
         {this.props.systems.map(system => { 
 
           return (
@@ -32,7 +32,7 @@ class Systems extends React.Component {
             </div>
           )
         })}
-      </section>
+      </div>
     )
   }
 }
