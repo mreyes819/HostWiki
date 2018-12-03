@@ -72,7 +72,6 @@
     margin-bottom: 1px;
     padding: 0;   
     
-
 }
 
 .main h3 { 
@@ -111,11 +110,12 @@ section h3{
 
 .section-component h4 { 
     margin-bottom: 5px;
-
+    text-transform: capitalize;
 }
 
 .section-component h3 { 
     margin-bottom: 5px;
+    text-transform: capitalize;
 }
 
 .section-component p { 
@@ -158,29 +158,27 @@ section h3{
 
 article { 
     border-radius: 10px;
-    
-    margin-bottom: 20px;
+    border: 2px solid grey;
+    margin-bottom: 50px;
     padding: 5px;
 }
 
+
 .system { 
     border-radius: 10px;
-    border: 2px solid grey;
-    padding: 3px;
-    margin-top: 10px;
+    border: 2px solid lightgrey;
+    padding: 5px;
+    margin-top: 30px;
 }
 .main-body {
-    
     margin-top: 75px;
     padding-top: 50px;
-    font-size: 30pt;
-    color: grey;
-    text-align: right;
+    font-size: 20pt;
 }
 
 .main h2 { 
-    text-align: center;
-    font-size: 35pt;
+    text-align: left;
+    font-size: 25pt;
 }
 
 h3{ 

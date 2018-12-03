@@ -10,8 +10,9 @@ import AboutPhotos from './spaceComponents/AboutPhotos';
 import Address from './spaceComponents/Address';
 import Systems from './spaceComponents/SpaceSystems';
 import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
-import Messages from './spaceComponents/Messages'
-import MessagesMenu from './spaceComponents/SideMenuMessages'
+import Messages from './spaceComponents/Messages';
+import MessagesMenu from './spaceComponents/SideMenuMessages';
+import FormsMenu from './spaceComponents/SideMenuForms';
 // import Typeform from './spaceComponents/typeform';
 
 const propTypes = {
@@ -24,7 +25,7 @@ class SpaceTemplate extends React.Component {
   render() {
     const space = this.props.data.contentfulSpace;
     let updates, aboutPhotos, aboutDescription, aboutAddress, 
-    systems, messages, systemsMenuLink, updateEventMenuLink, messagesMenuLink;
+    systems, messages, systemsMenuLink, updateEventMenuLink, messagesMenuLink, formsMenuLink;
 
 
 
@@ -49,6 +50,8 @@ class SpaceTemplate extends React.Component {
     } if (space.messages) {
       messages = <Messages messages={space.messages} /> 
       messagesMenuLink = <MessagesMenu messages={space.messages}/> 
+    } if (space.forms) { 
+      formsMenuLink = <FormsMenu forms={space.forms}/>
     }
 
     return (
@@ -64,22 +67,25 @@ class SpaceTemplate extends React.Component {
         <div className='page-container'>
 
           <div className='main'>
+            <article> 
+              <h1>  </h1>
 
-            <h1> {space.spaceName} </h1>
+              <section className='updates-events'>
+              {updates}
+              </section>
 
-            <section className='updates-events'>
-            {updates}
-            </section>
+              <section className='schedule'>
+                {/*Schedule*/}
+              </section>
+            </article>
 
-            <section className='schedule'>
-              {/*Schedule*/}
-            </section>
-
-
+            <article>
+              <h2> Schedule </h2>
+            </article>
 
             <article className='overview'>
               <h2>
-                About {space.spaceName} 
+                {space.spaceName} 
               </h2>
               {aboutPhotos}
 
@@ -95,21 +101,13 @@ class SpaceTemplate extends React.Component {
             </article>
 
 
-
-            <section className='systems-operations'>
-              <h2>System, Location, and Operation</h2>
-              {systems}
-            </section>
-
-
-
-
-            <h2>Forms & Checklists </h2>
-            <article>
-              <section className='typeform'>
-                 {/*  <Typeform url={SPACE.URL}/>  */}
+            <article className='systems'>
+              <section className='systems-operations'>
+                <h2>System, Location, and Operation</h2>
+                {systems}
               </section>
             </article>
+
 
             <h2>Messages</h2>
             <article>
@@ -122,7 +120,7 @@ class SpaceTemplate extends React.Component {
 
           <div className='sidenav-container'>
             <div className='sidenav-layout'>
-              <h1 className='space'> Operations </h1>
+              <h1 className='space'> {space.spaceName} </h1>
               <h2> Updates & Events </h2>
               {updateEventMenuLink}
 
@@ -134,7 +132,7 @@ class SpaceTemplate extends React.Component {
               </ul>
 
 
-              <h2> About {space.spaceName} </h2>
+              <h2> {space.spaceName} </h2>
 
 
 
@@ -152,13 +150,7 @@ class SpaceTemplate extends React.Component {
                {systemsMenuLink}
 
               <h2> Forms & Checklists </h2>
-              <ul>  
-                <li> Opening </li>
-                <li> Closing </li>
-                <li> Notable Interaction </li>
-                <li> Updates & Events </li>
-                <li> Inventory </li>
-              </ul>
+                {formsMenuLink}
 
               <h2> Messages </h2>
               {messagesMenuLink}
