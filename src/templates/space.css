@@ -1,6 +1,5 @@
 .page-container { 
     margin: 7vh auto;
-    
     width: 77vw; 
     border: 1px solid white;
     z-index: 4000;
@@ -52,7 +51,6 @@
     margin-left: 15px;
     padding-left: 15px;
     margin-bottom: -5px;
-
 }
 
 .system-photo { 
@@ -159,14 +157,36 @@ section h3{
 }
 
 article { 
-    k
     border-radius: 10px;
     
     margin-bottom: 20px;
     padding: 5px;
 }
 
-h3{ position:relative; }
+.system { 
+    border-radius: 10px;
+    border: 2px solid grey;
+    padding: 3px;
+    margin-top: 10px;
+}
+.main-body {
+    
+    margin-top: 75px;
+    padding-top: 50px;
+    font-size: 30pt;
+    color: grey;
+    text-align: right;
+}
+
+.main h2 { 
+    text-align: center;
+    font-size: 35pt;
+}
+
+h3{ 
+    position:relative; 
+
+}
 h3 span{ position:absolute; top:-7vh;}
 h2 span{ position:absolute; top:-9vh;}
 

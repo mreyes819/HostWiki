@@ -11,6 +11,7 @@ import Address from './spaceComponents/Address';
 import Systems from './spaceComponents/SpaceSystems';
 import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
 import Messages from './spaceComponents/Messages'
+import MessagesMenu from './spaceComponents/SideMenuMessages'
 // import Typeform from './spaceComponents/typeform';
 
 const propTypes = {
@@ -23,7 +24,7 @@ class SpaceTemplate extends React.Component {
   render() {
     const space = this.props.data.contentfulSpace;
     let updates, aboutPhotos, aboutDescription, aboutAddress, 
-    systems, messages, systemsMenuLink, updateEventMenuLink;
+    systems, messages, systemsMenuLink, updateEventMenuLink, messagesMenuLink;
 
 
 
@@ -47,6 +48,7 @@ class SpaceTemplate extends React.Component {
       systemsMenuLink = <SystemsMenu systems={space.systems2} />
     } if (space.messages) {
       messages = <Messages messages={space.messages} /> 
+      messagesMenuLink = <MessagesMenu messages={space.messages}/> 
     }
 
     return (
@@ -159,12 +161,7 @@ class SpaceTemplate extends React.Component {
               </ul>
 
               <h2> Messages </h2>
-              <ul>  
-                <li> 11:30am Lunch </li>
-                <li> 3:30pm Migrate </li>
-                <li> 4:30pm Last Call </li> 
-                <li> Closing</li> 
-              </ul>                
+              {messagesMenuLink}
             </div>
           </div>          
 
@@ -185,7 +182,7 @@ query($id: String!){
     spaceName
     stockPhotos{
       id
-      fluid(maxWidth: 1200, maxHeight: 600) {
+      fluid(maxWidth: 2000, maxHeight: 1000) {
         ...GatsbyContentfulFluid
       }
     }

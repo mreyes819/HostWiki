@@ -21,6 +21,8 @@ const SanFrancisco = ({data}) => (
 
               <div className='title-box'>
                 <h2 className='space-link-title'>{space.node.spaceName}</h2>
+                <h3> Host App </h3> 
+                <h3> Guide </h3>
               </div>
 
               <div className='entrance-photo'> 
