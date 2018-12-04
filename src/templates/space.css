@@ -64,7 +64,11 @@
     margin-bottom: 5px;
 }
 
-
+.main h1 { 
+    text-align: center;
+    font-size: 35pt;
+    margin-top: -50px;
+}
 
 .main h2,  .sidenav-layout h3{ 
     margin-top: -3px;
@@ -110,12 +114,12 @@ section h3{
 
 .section-component h4 { 
     margin-bottom: 5px;
-    text-transform: capitalize;
+    
 }
 
 .section-component h3 { 
     margin-bottom: 5px;
-    text-transform: capitalize;
+    
 }
 
 .section-component p { 
@@ -140,21 +144,7 @@ section h3{
     font-size: 1.15rem;
 }
 
-@media only screen and (max-width: 650px) {
-    .page-container { 
-        width: 95vw; 
-    }    
-    .sidenav-container {
-        display: none;
-    }
-    .main { 
-      width: 100%;
-    }
-}
 
-.typeform { 
-    /*height: 50vh;*/
-}
 
 article { 
     border-radius: 10px;
@@ -163,7 +153,18 @@ article {
     padding: 5px;
 }
 
+.sidenav-layout h2 { 
+    margin: -2px;
+    font-size: 17pt;
+}
 
+.sidenav-layout ul { 
+    margin-top: 0;
+}
+
+.sidenav-layout li { 
+    margin: -5px;
+}
 .system { 
     border-radius: 10px;
     border: 2px solid lightgrey;
@@ -188,5 +189,30 @@ h3{
 h3 span{ position:absolute; top:-7vh;}
 h2 span{ position:absolute; top:-9vh;}
 
-/* Section Components */
 
+
+@media only screen and (max-width: 650px) {
+    .page-container { 
+        width: 95vw; 
+    }    
+    .sidenav-container {
+        display: none;
+    }
+    .main { 
+      width: 100%;
+    }
+
+    /* Side Navigation  */
+    .sidenav-layout h2 { 
+    margin: -2px;
+    font-size: 17pt;
+    }
+
+    .sidenav-layout ul { 
+        margin-top: 0;
+    }
+
+    .sidenav-layout li { 
+        margin: -5px;
+    }
+}

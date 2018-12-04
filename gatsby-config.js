@@ -3,6 +3,7 @@ module.exports = {
     title: `Spacious`,
   },
   plugins: [
+    `gatsby-plugin-typography`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
@@ -37,6 +38,12 @@ module.exports = {
         spaceId: `b2rma6a4h8lf`,
         accessToken: `5614137cbd9547c9c82f8e28ab5179cdd2bf3e5f40cddbed8782e42dae78c654`,
       },
-    },    
+    },  
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`,
+      },
+    },  
   ],
 }

@@ -67,14 +67,15 @@ class SpaceTemplate extends React.Component {
         <div className='page-container'>
 
           <div className='main'>
+            <h1 className='space'> {space.spaceName} </h1>
             <article> 
-              <h1>  </h1>
+              
 
               <section className='updates-events'>
               {updates}
               </section>
 
-              <section className='schedule'>
+              <section className='schedule'>  
                 {/*Schedule*/}
               </section>
             </article>
@@ -85,7 +86,7 @@ class SpaceTemplate extends React.Component {
 
             <article className='overview'>
               <h2>
-                {space.spaceName} 
+                Info
               </h2>
               {aboutPhotos}
 
@@ -103,7 +104,7 @@ class SpaceTemplate extends React.Component {
 
             <article className='systems'>
               <section className='systems-operations'>
-                <h2>System, Location, and Operation</h2>
+                <h2>Where to find and or use</h2>
                 {systems}
               </section>
             </article>
@@ -120,7 +121,7 @@ class SpaceTemplate extends React.Component {
 
           <div className='sidenav-container'>
             <div className='sidenav-layout'>
-              <h1 className='space'> {space.spaceName} </h1>
+
               <h2> Updates & Events </h2>
               {updateEventMenuLink}
 
@@ -132,10 +133,7 @@ class SpaceTemplate extends React.Component {
               </ul>
 
 
-              <h2> {space.spaceName} </h2>
-
-
-
+              <h2> Info </h2>
               <ul>  
                 <li> Photos </li>
                 <li> Description </li>
@@ -146,14 +144,19 @@ class SpaceTemplate extends React.Component {
                 <li> Website & Social Media </li> 
               </ul>
 
-              <h2> System, Location, and Operation</h2>
+
+              <h2> Where to find and or use</h2>
                {systemsMenuLink}
+
 
               <h2> Forms & Checklists </h2>
                 {formsMenuLink}
 
+
               <h2> Messages </h2>
               {messagesMenuLink}
+
+
             </div>
           </div>          
 
