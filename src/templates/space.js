@@ -65,54 +65,94 @@ class SpaceTemplate extends React.Component {
         <Navigation /> 
 
         <div className='page-container'>
-
           <div className='main'>
-            <h1 className='space'> {space.spaceName} </h1>
-            <article> 
-              
-
-              <section className='updates-events'>
-              {updates}
+            
+            <article>
+              <section>
+                {aboutPhotos}
               </section>
 
-              <section className='schedule'>  
-                {/*Schedule*/}
+              <section>
+                <div>
+                  <h3> Description </h3>
+                  {aboutDescription}
+                </div>
+              </section>
+
+              <section>
+                <div>
+                  <h3> Address </h3>
+                  {aboutAddress}
+                </div>
               </section>
             </article>
+
+            <article> 
+              <section>
+                <div>
+                  {updates}
+                </div>
+              </section>
+
+              <section>  
+                <div>
+                  <h2> Schedule 'Hard coded' </h2>
+                  {/*Schedule*/}
+
+                  <h3> Opening Operations </h3> 
+                  <ol> 
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                  </ol>
+
+
+                  <h3> Day Operations </h3> 
+                  <ol> 
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                  </ol>
+
+
+                  <h3> Closing Operations </h3> 
+                  <ol> 
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                    <li>Step</li>
+                  </ol>       
+                </div>                         
+              </section>
+            </article>
+
 
             <article>
-              <h2> Schedule </h2>
-            </article>
-
-            <article className='overview'>
-              <h2>
-                Info
-              </h2>
-              {aboutPhotos}
-
-              <section className='description'>
-                <h2> Description </h2>
-                {aboutDescription}
-              </section>
-
-              <section className='address'>
-                <h2> Address </h2>
-                {aboutAddress}
-              </section>
-            </article>
-
-
-            <article className='systems'>
-              <section className='systems-operations'>
-                <h2>Where to find and or use</h2>
+              <section>
                 {systems}
               </section>
             </article>
 
 
-            <h2>Messages</h2>
+            
             <article>
-              {messages}
+              <section>
+                <h2>Messages</h2>
+                {messages}
+              </section>
             </article>            
           </div>
 
@@ -121,6 +161,15 @@ class SpaceTemplate extends React.Component {
 
           <div className='sidenav-container'>
             <div className='sidenav-layout'>
+              <h1 className='space'> {space.spaceName} Menu </h1>
+              
+              <h2> About {space.spaceName}</h2>
+              <ul>  
+                <li> Description </li>
+                <li> Address </li>
+                <li> Personnel </li> 
+              </ul>
+
 
               <h2> Updates & Events </h2>
               {updateEventMenuLink}
@@ -133,19 +182,7 @@ class SpaceTemplate extends React.Component {
               </ul>
 
 
-              <h2> Info </h2>
-              <ul>  
-                <li> Photos </li>
-                <li> Description </li>
-                <li> Address </li>
-                <li> Hours of Operation </li>
-                <li> Personnel </li> 
-                <li> Phone Number </li> 
-                <li> Website & Social Media </li> 
-              </ul>
-
-
-              <h2> Where to find and or use</h2>
+              <h2> Where/How To </h2>
                {systemsMenuLink}
 
 
@@ -246,6 +283,7 @@ query($id: String!){
     }
     
     forms{
+      id
       type
       url
     }
@@ -254,7 +292,8 @@ query($id: String!){
       timeMilitary
       title
       message{
-         message
+        id
+        message
       }
     }
     

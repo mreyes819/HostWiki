@@ -9,7 +9,11 @@ class UpdateEventMenu extends React.Component {
       <ul>
         {this.props.events.map(event => { 
           return (
-            <li><a href={`#${event.id}`}> {event.title} </a></li>
+            <li key={event.id}>
+              <a href={`#${event.title.split(' ').join('')}`} > 
+                {event.title} 
+              </a>
+            </li>
           )
         })}
       </ul>

@@ -7,11 +7,15 @@ class Systems extends React.Component {
   render() {
     return (
       <div className='systems'>
+        <h2>Where to find and or use</h2>
         {this.props.systems.map(system => { 
-
           return (
             <div key={system.id} className='system'> 
-              <h3 className='main-body'><span id={system.id}></span>{system.spaceSystems}</h3>
+              <h3 className='main-body'>
+                <span id={system.spaceSystems.split(' ').join('')}></span>
+                {system.spaceSystems}
+              </h3>
+              
               {system.steps.map(step =>{ 
                 return(
                   <div key={step.id} className='section-component'>

@@ -8,7 +8,7 @@ class AboutPhotos extends React.Component {
       <section >
         {this.props.photos.map(photo => { 
           return (
-            <Img fluid={photo.fluid} key={photo.id}/>
+            <Img className='about-photos'fluid={photo.fluid} key={photo.id}/>
           )
         })}               
       </section>

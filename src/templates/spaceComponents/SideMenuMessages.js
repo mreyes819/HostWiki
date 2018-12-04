@@ -8,7 +8,11 @@ class MessagesMenu extends React.Component {
       <ul>
         {this.props.messages.map(message => { 
           return (
-            <li><a href={`#${message.id}`}> {message.timeMilitary} {message.title} </a></li>
+            <li key={message.id}>
+              <a href={`#${message.title.split(' ').join('')}`}> 
+                {message.timeMilitary} {message.title} 
+              </a>
+            </li>
           )
         })}
       </ul>

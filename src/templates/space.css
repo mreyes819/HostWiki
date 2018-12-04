@@ -1,15 +1,24 @@
 .page-container { 
     margin: 7vh auto;
-    width: 77vw; 
-    border: 1px solid white;
-    z-index: 4000;
+    width: 95vw; 
+    display: flex;  
+    flex-direction: column;
 }
 
+.main {
+    width: 63vw;
+}
+
+.about-photos { 
+    height: 45vh;
+    width: 100%;
+}
+    
 /* The sidebar menu */
 .sidenav-container {
     height: 93vh; /* Full-height: remove this if you want "auto" height */
     margin-top: 7vh;
-    width: 30vw;
+    width: 33vw;
     min-width: 200px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
@@ -17,22 +26,11 @@
     right: 0;
     background-color: rgb(247,247,247);
     overflow-x: hidden; /* Disable horizontal scroll */
-    margin-right: 10px;
+    padding-right: 10px;
     
 }
 
 
-
-
-/* Style page content */
-.main {
-    margin-top: 7vh;
-    display: flex;  
-    width: 57vw;
-    flex-direction: column;
-
-}
-    
 .sidenav-layout { 
     font-size: .85em;
     margin-left: 1vw;
@@ -54,8 +52,8 @@
 }
 
 .system-photo { 
-    max-height: 400px;
-
+    max-height: 34vh;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -64,48 +62,40 @@
     margin-bottom: 5px;
 }
 
-.main h1 { 
-    text-align: center;
-    font-size: 35pt;
-    margin-top: -50px;
-}
+
 
 .main h2,  .sidenav-layout h3{ 
-    margin-top: -3px;
-    font-size: 1.5rem;
-    margin-bottom: 1px;
+    margin-bottom: 0;
     padding: 0;   
-    
 }
 
 .main h3 { 
     margin: 0;
     padding: 0;
-    
+    border: 0;
+    background-color: lightgrey;
+    min-height: 5vh;
+    width: 100%;
 }
 
 section h3{ 
     font-size: 14pt;
-
 }
+
 .main section { 
-
     margin-left: 15px;
-    margin-right: 15px;
     margin-top: 10px;
-
 }
 
 
-.main h2 { 
-    
+.main h2 {   
     z-index: 5;
 }
 
 
 .section-component { 
-    background-color: white;
-    border-radius: 5px;
+    background-color: lightgrey;
+    border-radius: 0 0 5px 5px ;
     padding: 5px;
     margin: 5px;
     margin-bottom: 20px;
@@ -135,27 +125,18 @@ section h3{
 
 }
 
-.section-systems h2 { 
-    font-size: 1.75rem;
-    
-}
-
-.section-systems h4 { 
-    font-size: 1.15rem;
-}
-
 
 
 article { 
     border-radius: 10px;
-    border: 2px solid grey;
+    
     margin-bottom: 50px;
     padding: 5px;
 }
 
 .sidenav-layout h2 { 
     margin: -2px;
-    font-size: 17pt;
+    font-size: 14pt;
 }
 
 .sidenav-layout ul { 
@@ -167,9 +148,11 @@ article {
 }
 .system { 
     border-radius: 10px;
-    border: 2px solid lightgrey;
     padding: 5px;
-    margin-top: 30px;
+    margin-top: 3vh;
+    margin-bottom: 10vh;
+    background-color: lightgrey;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
 }
 .main-body {
     margin-top: 75px;
@@ -179,24 +162,37 @@ article {
 
 .main h2 { 
     text-align: left;
-    font-size: 25pt;
+    
 }
 
 h3{ 
     position:relative; 
 
 }
-h3 span{ position:absolute; top:-7vh;}
-h2 span{ position:absolute; top:-9vh;}
+h3 span{ position:absolute; top:-9vh;}
+h2 span{ position:absolute; top:-11vh;}
 
 
 
-@media only screen and (max-width: 650px) {
+@media only screen and (min-width: 1200px) {
+    .system-photo { 
+        max-height: 55vh;
+    }
+
+}
+
+@media only screen and (max-width: 567px) {
     .page-container { 
-        width: 95vw; 
+        width: 100vw; 
     }    
     .sidenav-container {
         display: none;
+    }
+    .system { 
+        border-radius: 10px;
+        border: none;
+        padding: 5px;
+        margin-top: 0;
     }
     .main { 
       width: 100%;
