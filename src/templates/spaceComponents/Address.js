@@ -7,7 +7,7 @@ class Address extends React.Component {
   render() {
     return (
       <div>
-        {this.props.addresses.filter(address => address.type === "Main Entrance").map(address => { 
+        {this.props.addresses.map(address => { 
           return (
             <div key={address.id}> 
               <h3> {address.type} </h3>

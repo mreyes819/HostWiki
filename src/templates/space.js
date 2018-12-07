@@ -56,7 +56,7 @@ class SpaceTemplate extends React.Component {
 
     return (
 
-      <div>
+      <div className='screen'>
 
         <Helmet title={`Space Guide - ${space.spaceName}`}>
           <html lang="en" />
@@ -68,77 +68,53 @@ class SpaceTemplate extends React.Component {
           <div className='main'>
             
             <article>
-              <section>
-                {aboutPhotos}
-              </section>
+              {aboutPhotos}
+              <h2> 
+                <span className='main-span' id='about'></span>
+                About {space.spaceName} 
+              </h2>
+              <div className='about'>
 
-              <section>
-                <div>
-                  <h3> Description </h3>
-                  {aboutDescription}
-                </div>
-              </section>
 
-              <section>
-                <div>
-                  <h3> Address </h3>
-                  {aboutAddress}
-                </div>
-              </section>
+
+                <section>
+                  <div>
+                    <h3> Description </h3>
+                    {aboutDescription} {/*just a p element*/}
+                  </div>
+                </section>
+
+                <section>
+                  <div>
+                    {aboutAddress}
+                  </div>
+                </section>
+              </div>
             </article>
+
+
 
             <article> 
               <section>
-                <div>
-                  {updates}
-                </div>
-              </section>
-
-              <section>  
-                <div>
-                  <h2> Schedule 'Hard coded' </h2>
-                  {/*Schedule*/}
-
-                  <h3> Opening Operations </h3> 
-                  <ol> 
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                  </ol>
-
-
-                  <h3> Day Operations </h3> 
-                  <ol> 
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                  </ol>
-
-
-                  <h3> Closing Operations </h3> 
-                  <ol> 
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                    <li>Step</li>
-                  </ol>       
-                </div>                         
+                {/*   why is there a div element?  */}
+                <h2> Updates & Events</h2>
+                {updates}
+                
               </section>
             </article>
 
+            <article>
+              <section>  
+                <h2> Checklist & Schedule  </h2>
+                <div className='schedule'>
+                  {space.scheduleChecklist.map(schedule => {
+                    return(
+                      <div dangerouslySetInnerHTML={{ __html: schedule.checklist.childMarkdownRemark.html }} />
+                      
+                    )})}
+                </div>                         
+              </section>
+            </article>
 
             <article>
               <section>
@@ -146,6 +122,14 @@ class SpaceTemplate extends React.Component {
               </section>
             </article>
 
+            <article>
+              <section>
+                <h2> Cord Map </h2>
+                <div className='updates-events'> 
+
+                </div>
+              </section>
+            </article>
 
             
             <article>
@@ -161,18 +145,18 @@ class SpaceTemplate extends React.Component {
 
           <div className='sidenav-container'>
             <div className='sidenav-layout'>
-              <h1 className='space'> {space.spaceName} Menu </h1>
-              
-              <h2> About {space.spaceName}</h2>
-              <ul>  
-                <li> Description </li>
-                <li> Address </li>
-                <li> Personnel </li> 
-              </ul>
+              <h1 className='space'>{space.spaceName} Guide</h1>
+
+              <h2> 
+                <a href='#about'> 
+                  About {space.spaceName} 
+                </a>
+              </h2>
+
 
 
               <h2> Updates & Events </h2>
-              {updateEventMenuLink}
+              
 
               <h2> Schedule</h2>
               <ul>
@@ -182,16 +166,19 @@ class SpaceTemplate extends React.Component {
               </ul>
 
 
-              <h2> Where/How To </h2>
+              <h2> Where & How To </h2>
                {systemsMenuLink}
 
+              <h2> Cord Map </h2>
+
+              <h2> Messages </h2>
 
               <h2> Forms & Checklists </h2>
                 {formsMenuLink}
 
 
-              <h2> Messages </h2>
-              {messagesMenuLink}
+              
+              
 
 
             </div>
@@ -244,9 +231,11 @@ query($id: String!){
       }
     }
     scheduleChecklist{
-      title
       checklist{
-        checklist
+        childMarkdownRemark{
+          html
+          excerpt
+        }
       }
     }
     aboutSpace{

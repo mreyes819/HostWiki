@@ -5,8 +5,8 @@ class UpdatesEvents extends React.Component {
 
   render() {
     return (
-      <div >
-        <h2> Updates & Events</h2>
+      <div className='updates-events'>
+        
         {this.props.updates.map(update => { 
           return (
             <div key={update.id}>

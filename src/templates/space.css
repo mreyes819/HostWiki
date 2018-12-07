@@ -1,20 +1,100 @@
+.screen { 
+    background-color: rgb(25,36,41);
+    border: 1px solid rgb(25,36,41);;
+}
+
 .page-container { 
     margin: 7vh auto;
-    width: 95vw; 
+    width: 100vw; 
     display: flex;  
     flex-direction: column;
+
 }
 
 .main {
-    width: 63vw;
+    width: 67vw;
+    /*border: 2px solid blue;*/
+    padding: 0vh 5vw;
+    background-color: lightgrey;
+    /*rgb(25,36,41);*/
+}
+
+article { 
+
+    
+}
+
+article h2 {   
+    /*margin-left: 3vw;*/
+    font-size: 2em;
+    text-align: center;
+    /*margin-left: 10vw;*/
+    color: rgb(25,36,41);
+}
+
+
+section div { 
+    /* all children divs and their div children*/
+}
+
+.about-photos-container { 
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    -moz-box-shadow: 0px 0px 7px #000000;
+    -webkit-box-shadow: 0px 0px 7px #000000;
+    box-shadow: 0px 0px 7px #000000;
+    border-radius: 5px;
 }
 
 .about-photos { 
-    height: 45vh;
+    height: 45.5vh;
     width: 100%;
 }
+
+.updates-events, .system, .schedule, .about, .messages { 
+    padding: 5px;
+    margin-bottom: 10vh;
+    background-color: lightgrey;
+    -moz-box-shadow: 0px 0px 7px #000000;
+    -webkit-box-shadow: 0px 0px 7px #000000;
+    box-shadow: 0px 0px 7px #000000;
+    border-radius: 5px;
+}
+
+
+.section-component { 
+    background-color: lightgrey;
+    border-radius: 0 0 5px 5px ;
+    padding: 5px;
+    margin: 5px;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+
+.section-component h4 { 
+    margin-bottom: 5px;
+}
+
+
+.section-component{ 
     
-/* The sidebar menu */
+}
+
+.section-component p:last-child { 
+
+
+}
+
+
+h3{ 
+    position:relative; 
+
+}
+h3 span{ position:absolute; top:-9vh;}
+h2 span{ position:absolute; top:-11vh;}
+
+    
+/* !!!!!!!!!!!!!!!!!!   The sidebar menu    !!!!!!!!!!!!!!!!!!!!!!!!!!*/
 .sidenav-container {
     height: 93vh; /* Full-height: remove this if you want "auto" height */
     margin-top: 7vh;
@@ -64,78 +144,17 @@
 
 
 
-.main h2,  .sidenav-layout h3{ 
-    margin-bottom: 0;
-    padding: 0;   
-}
-
-.main h3 { 
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: lightgrey;
-    min-height: 5vh;
-    width: 100%;
-}
-
-section h3{ 
-    font-size: 14pt;
-}
-
-.main section { 
-    margin-left: 15px;
-    margin-top: 10px;
-}
-
-
-.main h2 {   
-    z-index: 5;
-}
-
-
-.section-component { 
-    background-color: lightgrey;
-    border-radius: 0 0 5px 5px ;
-    padding: 5px;
-    margin: 5px;
-    margin-bottom: 20px;
-    padding-bottom: 0;
-}
-
-.section-component h4 { 
-    margin-bottom: 5px;
-    
-}
-
-.section-component h3 { 
-    margin-bottom: 5px;
-    
-}
-
-.section-component p { 
-    margin-bottom: 10px;
-}
-
-.section-component{ 
-    
-}
-
-.section-component p:last-child { 
-
-
-}
 
 
 
-article { 
-    border-radius: 10px;
-    
-    margin-bottom: 50px;
-    padding: 5px;
-}
+
+
+
+
+
 
 .sidenav-layout h2 { 
-    margin: -2px;
+    margin: 10px;
     font-size: 14pt;
 }
 
@@ -146,31 +165,8 @@ article {
 .sidenav-layout li { 
     margin: -5px;
 }
-.system { 
-    border-radius: 10px;
-    padding: 5px;
-    margin-top: 3vh;
-    margin-bottom: 10vh;
-    background-color: lightgrey;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
-}
-.main-body {
-    margin-top: 75px;
-    padding-top: 50px;
-    font-size: 20pt;
-}
 
-.main h2 { 
-    text-align: left;
-    
-}
 
-h3{ 
-    position:relative; 
-
-}
-h3 span{ position:absolute; top:-9vh;}
-h2 span{ position:absolute; top:-11vh;}
 
 
 
@@ -212,3 +208,4 @@ h2 span{ position:absolute; top:-11vh;}
         margin: -5px;
     }
 }
+
