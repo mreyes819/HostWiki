@@ -34,7 +34,7 @@
     display: flex;
     text-decoration: none;
     padding: 0 10px;
-    color: white;
+    color: rgb(234,231,228);
     /*border: 1px solid red;*/
     /*!!!!!!!!!!!!*/
 }
@@ -67,7 +67,7 @@ gi
 
 .dropdown .dropbtn {
     border: none;
-    color: white;
+    color: rgb(234,231,228);
     background-color: inherit;
     font-family: inherit;
 }

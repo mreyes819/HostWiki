@@ -6,11 +6,11 @@ class Systems extends React.Component {
 
   render() {
     return (
-      <div className='messages'>
+      <div className=''>
       
         {this.props.messages.map(message => {
           return (
-          <div key={message.id}>
+          <div key={message.id} className='sub-section'>
             <h3 id={message.title.split(' ').join('')}> {message.timeMilitary} {message.title}</h3>
             <p></p>
             <p>{message.message.message}</p>

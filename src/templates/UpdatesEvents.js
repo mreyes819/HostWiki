@@ -1,15 +1,15 @@
 import React from 'react';
 
- 
+ // todo: refactor to a functional component
 class UpdatesEvents extends React.Component {
 
   render() {
     return (
-      <div className='updates-events'>
+      <div className=''>
         
         {this.props.updates.map(update => { 
           return (
-            <div key={update.id}>
+            <div key={update.id} className='sub-section'>
               <h3>
                 <span id={update.title.split(' ').join('')}></span>
                 {update.title}

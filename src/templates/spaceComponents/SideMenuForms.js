@@ -8,7 +8,11 @@ class FormsMenu extends React.Component {
       <ul> 
         {this.props.forms.map(form => { 
           return (
-           <a href={form.url} target="_blank" rel="noopener noreferrer" key={form.id}><li>{form.type}</li> </a>
+            <li>
+              <a href={form.url} target="_blank" rel="noopener noreferrer" key={form.id}>
+                {form.type}
+              </a>
+            </li> 
            )
         })}
       </ul>

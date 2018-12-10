@@ -5,15 +5,23 @@ import Helmet from 'react-helmet'
 import './space.css'
 import Navigation from '../components/navigation';
 import UpdatesEvents from './UpdatesEvents';
-import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
 import AboutPhotos from './spaceComponents/AboutPhotos';
 import Address from './spaceComponents/Address';
 import Systems from './spaceComponents/SpaceSystems';
 import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
 import Messages from './spaceComponents/Messages';
-import MessagesMenu from './spaceComponents/SideMenuMessages';
 import FormsMenu from './spaceComponents/SideMenuForms';
-// import Typeform from './spaceComponents/typeform';
+import ChecklistSchedule from './spaceComponents/ChecklistSchedule';
+import Img from "gatsby-image"
+
+
+// Will I still want to create internal links for these components?
+// import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
+// import MessagesMenu from './spaceComponents/SideMenuMessages';
+
+
+
+// import Typeform from './spaceComponents/typeform'; // won't build uses global or window - noop for gatsby but there might be a workaround. 
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -25,13 +33,13 @@ class SpaceTemplate extends React.Component {
   render() {
     const space = this.props.data.contentfulSpace;
     let updates, aboutPhotos, aboutDescription, aboutAddress, 
-    systems, messages, systemsMenuLink, updateEventMenuLink, messagesMenuLink, formsMenuLink;
+    systems, messages, systemsMenuLink, updateEventMenuLink, messagesMenuLink, formsMenuLink, checkSchedule, cordMapComp;
 
 
 
     if(space.updates) {
       updates = <UpdatesEvents updates={space.updates} />
-      updateEventMenuLink = <UpdateEventMenu events={space.updates}/>
+      // updateEventMenuLink = <UpdateEventMenu events={space.updates}/>
     } if (!space.updates) { 
       updates = <section> </section>
     } if (space.stockPhotos) { 
@@ -49,10 +57,15 @@ class SpaceTemplate extends React.Component {
       systemsMenuLink = <SystemsMenu systems={space.systems2} />
     } if (space.messages) {
       messages = <Messages messages={space.messages} /> 
-      messagesMenuLink = <MessagesMenu messages={space.messages}/> 
+      // messagesMenuLink = <MessagesMenu messages={space.messages}/> 
     } if (space.forms) { 
       formsMenuLink = <FormsMenu forms={space.forms}/>
+    } if (space.scheduleChecklist) { 
+      checkSchedule = <ChecklistSchedule scheduleChecklist={space.scheduleChecklist} />
+    } if (space.cordMap) { 
+      cordMapComp = <Img fluid={space.cordMap.fluid} className='system-photo' />
     }
+
 
     return (
 
@@ -70,7 +83,7 @@ class SpaceTemplate extends React.Component {
             <article>
               {aboutPhotos}
               <h2> 
-                <span className='main-span' id='about'></span>
+                <span id='about-space'></span>
                 About {space.spaceName} 
               </h2>
               <div className='about'>
@@ -80,7 +93,7 @@ class SpaceTemplate extends React.Component {
                 <section>
                   <div>
                     <h3> Description </h3>
-                    {aboutDescription} {/*just a p element*/}
+                    {aboutDescription} 
                   </div>
                 </section>
 
@@ -93,51 +106,65 @@ class SpaceTemplate extends React.Component {
             </article>
 
 
-
+          {/*    if update is empty?     */}
             <article> 
               <section>
-                {/*   why is there a div element?  */}
-                <h2> Updates & Events</h2>
+                <h2> 
+                  <span id='updates-events'></span>
+                  Updates & Events
+                </h2>              
                 {updates}
                 
               </section>
             </article>
 
-            <article>
+          {/*todo: factor into seperate file, into a functional component. import*/}
+            <article> 
               <section>  
-                <h2> Checklist & Schedule  </h2>
-                <div className='schedule'>
-                  {space.scheduleChecklist.map(schedule => {
-                    return(
-                      <div dangerouslySetInnerHTML={{ __html: schedule.checklist.childMarkdownRemark.html }} />
-                      
-                    )})}
-                </div>                         
+                <h2> 
+                  <span id='schedule'></span>
+                  Schedule  
+                </h2>
+                {checkSchedule}                   
               </section>
             </article>
 
             <article>
               <section>
+                <h2> 
+                  <span id='where-how'></span>
+                  Where & How to 
+                </h2>                
                 {systems}
               </section>
             </article>
 
             <article>
               <section>
-                <h2> Cord Map </h2>
-                <div className='updates-events'> 
-
+                <h2> 
+                  <span id='cord-map'></span>
+                  Cord Map 
+                </h2>
+                <div className='system'>
+                  // {cordMapComp}
                 </div>
+
+                
               </section>
             </article>
 
             
             <article>
               <section>
-                <h2>Messages</h2>
+                <h2>
+                  <span id='messages'></span>
+                  Messages
+                </h2>
                 {messages}
               </section>
-            </article>            
+            </article> 
+
+            <div className='end'> </div>           
           </div>
 
 
@@ -145,35 +172,51 @@ class SpaceTemplate extends React.Component {
 
           <div className='sidenav-container'>
             <div className='sidenav-layout'>
-              <h1 className='space'>{space.spaceName} Guide</h1>
+              {/*<h1 className='space'>{space.spaceName} Guide</h1>*/}
 
               <h2> 
-                <a href='#about'> 
+                <a href='#about-space'> 
                   About {space.spaceName} 
                 </a>
               </h2>
 
 
 
-              <h2> Updates & Events </h2>
+              <h2> 
+                <a href='#updates-events'> 
+                  Updates & Events
+                </a>
+              </h2>
               
 
-              <h2> Schedule</h2>
-              <ul>
-                <li>Opening Operations</li>
-                <li>Day Operations</li>
-                <li>Closing Operations</li>
-              </ul>
+              <h2> 
+                <a href='#schedule'> 
+                  Schedule
+                </a>
+              </h2>
 
 
-              <h2> Where & How To </h2>
+
+              <h2> 
+                <a href='#where-how'> 
+                  Where & How To 
+                </a>
+              </h2>
                {systemsMenuLink}
 
-              <h2> Cord Map </h2>
+              <h2> 
+                <a href='#cord-map'> 
+                  Cord Map
+                </a>
+               </h2>
 
-              <h2> Messages </h2>
+              <h2> 
+                <a href='#messages'> 
+                  Messages 
+                </a>
+              </h2>
 
-              <h2> Forms & Checklists </h2>
+              <h2 className='forms-checklist'> Forms & Checklists </h2>
                 {formsMenuLink}
 
 
@@ -231,6 +274,7 @@ query($id: String!){
       }
     }
     scheduleChecklist{
+      id
       checklist{
         childMarkdownRemark{
           html
@@ -286,6 +330,11 @@ query($id: String!){
       }
     }
     
+    cordMap{
+      fluid(maxWidth: 800, maxHeight: 600) {
+        ...GatsbyContentfulFluid
+      }
+    }    
 
   }
 }

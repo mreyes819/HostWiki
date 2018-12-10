@@ -9,7 +9,7 @@ class Address extends React.Component {
       <div>
         {this.props.addresses.map(address => { 
           return (
-            <div key={address.id}> 
+            <div key={address.id} className='sub-section'> 
               <h3> {address.type} </h3>
               <MapComponent defaultCenter={{lat: address.street.lat, lng: address.street.lon}} />
             </div>

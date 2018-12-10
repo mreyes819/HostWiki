@@ -7,7 +7,6 @@ class Systems extends React.Component {
   render() {
     return (
       <div className='systems'>
-        <h2>Where/How To </h2>
         {this.props.systems.map(system => { 
           return (
             <div key={system.id} className='system'> 
