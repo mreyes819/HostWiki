@@ -1,6 +1,5 @@
 import React from 'react';
 
- // todo: refactor to a functional component
 class UpdatesEvents extends React.Component {
 
   render() {

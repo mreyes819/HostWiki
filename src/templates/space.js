@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types"
 import Helmet from 'react-helmet'
 import './space.css'
 import Navigation from '../components/navigation';
-import UpdatesEvents from './UpdatesEvents';
+import UpdatesEvents from './spaceComponents/UpdatesEvents';
 import AboutPhotos from './spaceComponents/AboutPhotos';
 import Address from './spaceComponents/Address';
 import Systems from './spaceComponents/SpaceSystems';
@@ -17,7 +17,7 @@ import Img from "gatsby-image"
 
 // Will I still want to create internal links for these components?
 // import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
-// import MessagesMenu from './spaceComponents/SideMenuMessages';
+import MessagesMenu from './spaceComponents/SideMenuMessages';
 
 
 
@@ -53,11 +53,12 @@ class SpaceTemplate extends React.Component {
     } if (space.aboutSpace) {
       aboutAddress = <Address addresses={space.aboutSpace.addresses} /> 
     } if (space.systems2) {
+
       systems = <Systems systems={space.systems2} />
       systemsMenuLink = <SystemsMenu systems={space.systems2} />
     } if (space.messages) {
       messages = <Messages messages={space.messages} /> 
-      // messagesMenuLink = <MessagesMenu messages={space.messages}/> 
+      messagesMenuLink = <MessagesMenu messages={space.messages}/> 
     } if (space.forms) { 
       formsMenuLink = <FormsMenu forms={space.forms}/>
     } if (space.scheduleChecklist) { 
@@ -146,7 +147,7 @@ class SpaceTemplate extends React.Component {
                   Cord Map 
                 </h2>
                 <div className='system'>
-                  // {cordMapComp}
+                  {cordMapComp}
                 </div>
 
                 
@@ -215,6 +216,7 @@ class SpaceTemplate extends React.Component {
                   Messages 
                 </a>
               </h2>
+                {messagesMenuLink}
 
               <h2 className='forms-checklist'> Forms & Checklists </h2>
                 {formsMenuLink}
@@ -248,20 +250,28 @@ query($id: String!){
         ...GatsbyContentfulFluid
       }
     }
-    systems2{
+    systems2 {
       id
       spaceSystems
-      steps{
+      systemDescription {
+        childMarkdownRemark {
+          html
+        }
+      }
+      steps {
         id
         title
-        photos{
-          title
-          description
+        photo {
           id
-          fluid(maxWidth:800) {
+          fluid(maxWidth: 800, maxHeight: 600) {
             ...GatsbyContentfulFluid
-          } 
-        }  
+          }
+        }
+        description {
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
 
