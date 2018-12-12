@@ -110,18 +110,9 @@ class SpaceTemplate extends React.Component {
 
 
           {/*    if update is empty?     */}
-            <article> 
-              <section>
-                <h2> 
-                  <span id='updates-events'></span>
-                  Updates & Events
-                </h2>              
+          
                 {updates}
                 
-              </section>
-            </article>
-
-          {/*todo: factor into seperate file, into a functional component. import*/}
             <article> 
               <section>  
                 <h2> 
