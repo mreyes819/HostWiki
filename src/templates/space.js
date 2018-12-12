@@ -13,6 +13,7 @@ import Messages from './spaceComponents/Messages';
 import FormsMenu from './spaceComponents/SideMenuForms';
 import ChecklistSchedule from './spaceComponents/ChecklistSchedule';
 import CordMap from './spaceComponents/CordMap';
+import AboutSpace from './spaceComponents/AboutSpace';
 import Img from "gatsby-image";
 
 
@@ -33,31 +34,28 @@ class SpaceTemplate extends React.Component {
 
   render() {
     const space = this.props.data.contentfulSpace;
-    let updates, aboutPhotos, aboutDescription, aboutAddress, 
-    systems, messages, systemsMenuLink, updateEventMenuLink, messagesMenuLink, formsMenuLink, checkSchedule, cordMapComp;
+    let updates, aboutPhotos, aboutDescription, aboutAddress, systems, messages, systemsMenuLink, 
+    updateEventMenuLink, messagesMenuLink, formsMenuLink, checkSchedule, cordMapComp, aboutSpace;
 
 
 
-    if(space.updates) {
+    if (space.aboutSpace) {
+      aboutSpace = <AboutSpace space={space} />
+    } if(space.updates) {
       updates = <UpdatesEvents updates={space.updates} />
       // updateEventMenuLink = <UpdateEventMenu events={space.updates}/>
-    } if (space.stockPhotos) { 
-      aboutPhotos = <AboutPhotos photos={space.stockPhotos} />  
-    } if (space.aboutSpace) {
-      aboutAddress = <Address addresses={space.aboutSpace.addresses} /> 
-      aboutDescription = <p>{space.aboutSpace.description.description}</p>
+    } if (space.scheduleChecklist) { 
+      checkSchedule = <ChecklistSchedule scheduleChecklist={space.scheduleChecklist} />
     } if (space.systems2) {
       systems = <Systems systems={space.systems2} />
       systemsMenuLink = <SystemsMenu systems={space.systems2} />
+    } if (space.cordMap) { 
+      cordMapComp = <CordMap cordMap={space.cordMap} className='system-photo' />
     } if (space.messages) {
       messages = <Messages messages={space.messages} /> 
       messagesMenuLink = <MessagesMenu messages={space.messages}/> 
     } if (space.forms) { 
       formsMenuLink = <FormsMenu forms={space.forms}/>
-    } if (space.scheduleChecklist) { 
-      checkSchedule = <ChecklistSchedule scheduleChecklist={space.scheduleChecklist} />
-    } if (space.cordMap) { 
-      cordMapComp = <CordMap cordMap={space.cordMap} className='system-photo' />
     }
 
 
@@ -73,47 +71,14 @@ class SpaceTemplate extends React.Component {
 
         <div className='page-container'>
           <div className='main'>
-            
-            <article>
-              {aboutPhotos}
-
-
-              <div >
-                <section>
-
-                  <h2> 
-                    <span id='about-space'></span>
-                    About {space.spaceName} 
-                  </h2>
-                </section>
-                <section>
-                  <div className='sub-section'>
-                    <h3> Description </h3>
-                    {aboutDescription} 
-                  </div>
-                </section>
-
-                <section>
-                  <div>
-                    {aboutAddress}
-                  </div>
-                </section>
-              </div>
-            </article>
-
-                {updates}
-                {checkSchedule}                                
-                {systems}
-                {cordMapComp}
-                {messages}
-              
-            
-
+            {aboutSpace}
+            {updates}
+            {checkSchedule}                                
+            {systems}
+            {cordMapComp}
+            {messages}
             <div className='end'> </div>           
           </div>
-
-
-
 
           <div className='sidenav-container'>
             <div className='sidenav-layout'>
