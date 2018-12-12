@@ -40,7 +40,7 @@ class Systems extends React.Component {
           let systemDescription
 
           if(system.systemDescription) { 
-            systemDescription = <div key={system.id} dangerouslySetInnerHTML={{ __html: system.systemDescription.childMarkdownRemark.html }} />
+            systemDescription = <div className='description' key={system.id} dangerouslySetInnerHTML={{ __html: system.systemDescription.childMarkdownRemark.html }} />
           }
 
 
@@ -54,7 +54,7 @@ class Systems extends React.Component {
               {system.steps.map(step => { 
                 let stepDescription;
                 if(step.description) { 
-                  stepDescription = <div key={step.id} dangerouslySetInnerHTML={{ __html: step.description.childMarkdownRemark.html }} />
+                  stepDescription = <div className='description' key={step.id} dangerouslySetInnerHTML={{ __html: step.description.childMarkdownRemark.html }} />
                 }
 
 

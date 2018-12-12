@@ -83,16 +83,18 @@ class SpaceTemplate extends React.Component {
             
             <article>
               {aboutPhotos}
-              <h2> 
-                <span id='about-space'></span>
-                About {space.spaceName} 
-              </h2>
-              <div className='about'>
 
 
-
+              <div >
                 <section>
-                  <div>
+
+                  <h2> 
+                    <span id='about-space'></span>
+                    About {space.spaceName} 
+                  </h2>
+                </section>
+                <section>
+                  <div className='sub-section'>
                     <h3> Description </h3>
                     {aboutDescription} 
                   </div>
@@ -218,9 +220,10 @@ class SpaceTemplate extends React.Component {
               </h2>
                 {messagesMenuLink}
 
-              <h2 className='forms-checklist'> Forms & Checklists </h2>
+              <div className='forms-checklist'>
+              <h2> Forms & Checklists </h2>
                 {formsMenuLink}
-
+              </div>
 
               
               
