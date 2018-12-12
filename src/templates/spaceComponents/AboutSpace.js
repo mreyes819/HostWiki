@@ -7,7 +7,7 @@ class AboutSpace extends React.Component {
 
   render() {
     return (
-      <article>
+      <article className='system'>
         <AboutPhotos photos={this.props.space.stockPhotos} />  
 
 

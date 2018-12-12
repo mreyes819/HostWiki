@@ -4,14 +4,14 @@ class UpdatesEvents extends React.Component {
 
   render() {
     return (
-      <section>      
+      <section className='system'>      
           <h2> 
             <span id='updates-events'></span>
             Updates & Events
           </h2>     
           {this.props.updates.map(update => { 
             return (
-              <div key={update.id} className='sub-section'>
+              <div key={update.id} className='updates'>
                 <h3>
                   <span id={update.title.split(' ').join('')}></span>
                   {update.title}

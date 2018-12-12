@@ -5,8 +5,8 @@ class ChecklistSchedule extends React.Component {
 
   render() {
     return (
-      <article> 
-        <section>  
+      
+        <section className='system'>  
           <h2> 
             <span id='schedule'></span>
             Schedule  
@@ -19,7 +19,7 @@ class ChecklistSchedule extends React.Component {
               )})}
           </div>    
         </section>
-      </article>          
+             
     )
   }
 }

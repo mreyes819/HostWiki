@@ -46,6 +46,7 @@ class Systems extends React.Component {
             })}*/} 
 
             {this.props.systems.map(system => { 
+              
               let systemDescription
 
               if(system.systemDescription) { 
@@ -54,7 +55,7 @@ class Systems extends React.Component {
 
 
               return (
-                <div key={system.id} className='system'> 
+                <section key={system.id} className='sub-section'> 
 
                   <div className='section-component'>
                     <h3>
@@ -66,26 +67,32 @@ class Systems extends React.Component {
 
 
                   {system.steps.map(step => { 
-                    let stepDescription;
+                    console.log('STEP: ', step)
+                    let stepDescription, photo;
+
                     if(step.description) { 
                       stepDescription = <div className='description' key={step.id} dangerouslySetInnerHTML={{ __html: step.description.childMarkdownRemark.html }} />
                     }
 
+                    if(step.photo.fluid) { 
+                      photo = <Img fluid={step.photo.fluid} className='system-photo' />
+                    }
+
 
                     return (
-                      <div>
-                        <div key={step.id} className='section-component'>
+                      <div key={step.id} >
+                        <div className='section-component'>
                           <h4>{step.title}</h4>
                           {stepDescription}
                           
 
 
                         </div>
-                        <Img fluid={step.photo.fluid} className='system-photo' />
+                        {photo}
                       </div>
                     )
                   })}
-                </div>
+                </section>
               )
             })}
 
