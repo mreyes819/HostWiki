@@ -12,7 +12,8 @@ import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
 import Messages from './spaceComponents/Messages';
 import FormsMenu from './spaceComponents/SideMenuForms';
 import ChecklistSchedule from './spaceComponents/ChecklistSchedule';
-import Img from "gatsby-image"
+import CordMap from './spaceComponents/CordMap';
+import Img from "gatsby-image";
 
 
 // Will I still want to create internal links for these components?
@@ -40,20 +41,12 @@ class SpaceTemplate extends React.Component {
     if(space.updates) {
       updates = <UpdatesEvents updates={space.updates} />
       // updateEventMenuLink = <UpdateEventMenu events={space.updates}/>
-    } if (!space.updates) { 
-      updates = <section> </section>
     } if (space.stockPhotos) { 
-      aboutPhotos = <AboutPhotos photos={space.stockPhotos} /> 
-    } if (!space.stockPhotos) {
-      aboutPhotos = <section> </section>
-    } if (!space.aboutSpace) {
-      aboutDescription = <p> </p>
-    } if (space.aboutSpace) {
-      aboutDescription = <p>{space.aboutSpace.description.description}</p>
+      aboutPhotos = <AboutPhotos photos={space.stockPhotos} />  
     } if (space.aboutSpace) {
       aboutAddress = <Address addresses={space.aboutSpace.addresses} /> 
+      aboutDescription = <p>{space.aboutSpace.description.description}</p>
     } if (space.systems2) {
-
       systems = <Systems systems={space.systems2} />
       systemsMenuLink = <SystemsMenu systems={space.systems2} />
     } if (space.messages) {
@@ -64,7 +57,7 @@ class SpaceTemplate extends React.Component {
     } if (space.scheduleChecklist) { 
       checkSchedule = <ChecklistSchedule scheduleChecklist={space.scheduleChecklist} />
     } if (space.cordMap) { 
-      cordMapComp = <Img fluid={space.cordMap.fluid} className='system-photo' />
+      cordMapComp = <CordMap cordMap={space.cordMap} className='system-photo' />
     }
 
 
@@ -108,37 +101,13 @@ class SpaceTemplate extends React.Component {
               </div>
             </article>
 
-
-          {/*    if update is empty?     */}
                 {updates}
                 {checkSchedule}                                
                 {systems}
-
-
-            <article>
-              <section>
-                <h2> 
-                  <span id='cord-map'></span>
-                  Cord Map 
-                </h2>
-                <div className='system'>
-                  {cordMapComp}
-                </div>
-
-                
-              </section>
-            </article>
-
-            
-            <article>
-              <section>
-                <h2>
-                  <span id='messages'></span>
-                  Messages
-                </h2>
+                {cordMapComp}
                 {messages}
-              </section>
-            </article> 
+              
+            
 
             <div className='end'> </div>           
           </div>
@@ -157,21 +126,17 @@ class SpaceTemplate extends React.Component {
               </h2>
 
 
-
               <h2> 
                 <a href='#updates-events'> 
                   Updates & Events
                 </a>
-              </h2>
-              
+              </h2>       
 
               <h2> 
                 <a href='#schedule'> 
                   Schedule
                 </a>
               </h2>
-
-
 
               <h2> 
                 <a href='#where-how'> 
@@ -180,11 +145,14 @@ class SpaceTemplate extends React.Component {
               </h2>
                {systemsMenuLink}
 
+
               <h2> 
                 <a href='#cord-map'> 
                   Cord Map
                 </a>
                </h2>
+
+
 
               <h2> 
                 <a href='#messages'> 
@@ -193,13 +161,11 @@ class SpaceTemplate extends React.Component {
               </h2>
                 {messagesMenuLink}
 
+
               <div className='forms-checklist'>
               <h2> Forms & Checklists </h2>
                 {formsMenuLink}
               </div>
-
-              
-              
 
 
             </div>
