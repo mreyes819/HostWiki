@@ -55,11 +55,16 @@ class Systems extends React.Component {
 
               return (
                 <div key={system.id} className='system'> 
-                  <h3 className='main-body'>
-                    <span id={system.spaceSystems.split(' ').join('')}></span>
-                    {system.spaceSystems}
-                  </h3>
-                  {systemDescription}
+
+                  <div className='section-component'>
+                    <h3>
+                      <span id={system.spaceSystems.split(' ').join('')}></span>
+                      {system.spaceSystems}
+                    </h3>
+                    {systemDescription}
+                  </div>
+
+
                   {system.steps.map(step => { 
                     let stepDescription;
                     if(step.description) { 
@@ -68,12 +73,15 @@ class Systems extends React.Component {
 
 
                     return (
-                      <div key={step.id} className='section-component'>
-                        <h4>{step.title}</h4>
-                        {stepDescription}
+                      <div>
+                        <div key={step.id} className='section-component'>
+                          <h4>{step.title}</h4>
+                          {stepDescription}
+                          
+
+
+                        </div>
                         <Img fluid={step.photo.fluid} className='system-photo' />
-
-
                       </div>
                     )
                   })}

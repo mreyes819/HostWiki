@@ -70,6 +70,8 @@ class SpaceTemplate extends React.Component {
         <Navigation /> 
 
         <div className='page-container'>
+
+
           <div className='main'>
             {aboutSpace}
             {updates}
@@ -80,64 +82,61 @@ class SpaceTemplate extends React.Component {
             <div className='end'> </div>           
           </div>
 
-          <div className='sidenav-container'>
-            <div className='sidenav-layout'>
-              {/*<h1 className='space'>{space.spaceName} Guide</h1>*/}
-
-              <h2> 
-                <a href='#about-space'> 
-                  About {space.spaceName} 
-                </a>
-              </h2>
+          <div className='sidenav sidenav-layout'>
+            <h2> 
+              <a href='#about-space'> 
+                About {space.spaceName} 
+              </a>
+            </h2>
 
 
-              <h2> 
-                <a href='#updates-events'> 
-                  Updates & Events
-                </a>
-              </h2>       
+            <h2> 
+              <a href='#updates-events'> 
+                Updates & Events
+              </a>
+            </h2>       
 
-              <h2> 
-                <a href='#schedule'> 
-                  Schedule
-                </a>
-              </h2>
+            <h2> 
+              <a href='#schedule'> 
+                Schedule
+              </a>
+            </h2>
 
-              <h2> 
-                <a href='#where-how'> 
-                  Where & How To 
-                </a>
-              </h2>
-               {systemsMenuLink}
+            <h2> 
+              <a href='#where-how'> 
+                Where & How To 
+              </a>
+            </h2>
+             {systemsMenuLink}
 
 
-              <h2> 
-                <a href='#cord-map'> 
-                  Cord Map
-                </a>
-               </h2>
+            <h2> 
+              <a href='#cord-map'> 
+                Cord Map
+              </a>
+             </h2>
 
 
 
-              <h2> 
-                <a href='#messages'> 
-                  Messages 
-                </a>
-              </h2>
-                {messagesMenuLink}
+            <h2> 
+              <a href='#messages'> 
+                Messages 
+              </a>
+            </h2>
+              {messagesMenuLink}
 
 
-              <div className='forms-checklist'>
-              <h2> Forms & Checklists </h2>
-                {formsMenuLink}
-              </div>
-
-
+            <div className='forms-checklist'>
+            <h2> Forms & Checklists </h2>
+              {formsMenuLink}
             </div>
+
+
+            
           </div>          
 
-        </div>  
-      </div>
+        </div>  {/*page-container*/}
+      </div> /*screen*/
     )
   }
 }

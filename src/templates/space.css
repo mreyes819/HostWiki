@@ -55,6 +55,7 @@ section div {
 .updates-events, .system, .schedule, .about, .messages { 
     padding: 5px;
     margin-bottom: 10vh;
+    padding-bottom: 2vh;
     /*background-color: lightgrey;*/
 /*    -moz-box-shadow: 0px 0px 7px #000000;
     -webkit-box-shadow: 0px 0px 7px #000000;
@@ -63,8 +64,10 @@ section div {
     /*border-radius: 5px;*/
 }
 
+
 .description p { 
     margin: 0;
+
 }
 
 .sub-section { 
@@ -85,6 +88,7 @@ section div {
     margin: 5px;
     margin-bottom: 20px;
     padding-bottom: 0;
+    /*border: 1px solid blue;*/
 }
 
 .section-component h4 { 
@@ -115,7 +119,7 @@ h2 span{ position:absolute; top:-7.5vh;}
 
     
 /* !!!!!!!!!!!!!!!!!!   The sidebar menu    !!!!!!!!!!!!!!!!!!!!!!!!!!*/
-.sidenav-container {
+.sidenav {
     height: 93vh; /* Full-height: remove this if you want "auto" height */
     margin-top: 7vh;
     width: 33vw;
@@ -200,7 +204,7 @@ h2 a {
     .page-container { 
         width: 100vw; 
     }    
-    .sidenav-container {
+    .sidenav {
         display: none;
     }
     .system { 
