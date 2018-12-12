@@ -110,28 +110,10 @@ class SpaceTemplate extends React.Component {
 
 
           {/*    if update is empty?     */}
-          
                 {updates}
-                
-            <article> 
-              <section>  
-                <h2> 
-                  <span id='schedule'></span>
-                  Schedule  
-                </h2>
-                {checkSchedule}                   
-              </section>
-            </article>
-
-            <article>
-              <section>
-                <h2> 
-                  <span id='where-how'></span>
-                  Where & How to 
-                </h2>                
+                {checkSchedule}                                
                 {systems}
-              </section>
-            </article>
+
 
             <article>
               <section>
