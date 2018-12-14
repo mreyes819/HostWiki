@@ -15,35 +15,7 @@ class Systems extends React.Component {
           
 
 
-          <div className='systems'>
-            {/*        {this.props.systems.map(system => { 
-              return (
-                <div key={system.id} className='system'> 
-                  <h3 className='main-body'>
-                    <span id={system.spaceSystems.split(' ').join('')}></span>
-                    {system.spaceSystems}
-                  </h3>
-                  
-                  {system.steps.map(step =>{ 
-                    return(
-                      <div key={step.id} className='section-component'>
-                        
-                        {step.photos.map(photo => { 
-                          return (
-                            <div key={photo.id} > 
-                              <h4>{photo.title}</h4>
-                              <p> {photo.description} </p>
-                              <Img fluid={photo.fluid} className='system-photo' />
-                            </div>
-                          )
-                        })}
-                        
-                      </div>
-                    )
-                  })}
-                </div>
-              )
-            })}*/} 
+          <div className='system'>
 
             {this.props.systems.map(system => { 
               
@@ -67,7 +39,6 @@ class Systems extends React.Component {
 
 
                   {system.steps.map(step => { 
-                    console.log('STEP: ', step)
                     let stepDescription, photo;
 
                     if(step.description) { 
@@ -84,11 +55,9 @@ class Systems extends React.Component {
                         <div className='section-component'>
                           <h4>{step.title}</h4>
                           {stepDescription}
-                          
-
-
+                          {photo}  
                         </div>
-                        {photo}
+                        
                       </div>
                     )
                   })}

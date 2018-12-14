@@ -15,13 +15,18 @@ const SanFrancisco = ({data}) => (
     <h1 className="city">San Francisco</h1>
     <div className='space-list-container'>
       {data.allContentfulSpace.edges.filter(space => space.node.city === 'San Francisco').map(space => { 
+        console.log(space)
         return (
           <div key={space.node.id} className='button-container' >
             <Link to={`san-francisco/${space.node.slug}`}>
 
               <div className='title-box'>
                 <h2 className='space-link-title'>{space.node.spaceName}</h2>
-                <h3> Host App | Guide | Slack Channel </h3> 
+
+                <div> 
+                  <a href={space.node.linkHostApp}> Host App</a>
+                </div>
+                
                 
 
               </div>
@@ -50,6 +55,11 @@ export const query = graphql`
         city
         slug
         id
+        linkHostApp
+        linkSlackApp{
+          teamId
+          channelId
+        }
         heroPhoto {
           fluid(maxWidth: 1200, maxHeight: 600) {
             ...GatsbyContentfulFluid

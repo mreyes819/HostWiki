@@ -154,7 +154,6 @@ h2 span{ position:absolute; top:-7.5vh;}
     font-size: 12pt;
     list-style-type: none;
     margin: 0;
-    margin-bottom: -5px;
     padding-left: .25vw;
     border: 0;    
 }
@@ -163,7 +162,9 @@ h2 span{ position:absolute; top:-7.5vh;}
     max-height: 34vh;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
+
 }
+
 
 .forms-checklist { 
     margin-top: 5vh;
