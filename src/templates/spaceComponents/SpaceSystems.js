@@ -29,7 +29,7 @@ class Systems extends React.Component {
               return (
                 <section key={system.id} className='sub-section'> 
 
-                  <div className='section-component'>
+                  <div className='section-component-title-desc'>
                     <h3>
                       <span id={system.spaceSystems.split(' ').join('')}></span>
                       {system.spaceSystems}

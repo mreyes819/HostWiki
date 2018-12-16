@@ -13,7 +13,7 @@
 }
 
 .main {
-    width: 67vw;
+    width: 77vw;
     /*border: 2px solid blue;*/
     padding: 0vh 5vw;
     background-color: white;
@@ -99,7 +99,7 @@ section div {
 .section-component { 
     padding-left: 20px;
     margin-top: 20px;
-    margin-bottom: 3px;
+    margin-bottom: 50px;
     padding-bottom: 0;
     /*border: 1px solid blue;*/
 }
@@ -109,15 +109,15 @@ section div {
     /*border: 1px solid blue;*/
 }
 
-
-.section-component p:last-child { 
-
-
+.section-component-title-desc {
+    padding-left: 25px;
 }
+
 
 .end { 
     margin-bottom: 15vh;
 }
+
 
 
 
@@ -132,7 +132,7 @@ h2 span{ position:absolute; top:-7.5vh;}
 .sidenav {
     height: 93vh; /* Full-height: remove this if you want "auto" height */
     margin-top: 7vh;
-    width: 33vw;
+    width: 23vw;
     min-width: 200px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
@@ -161,7 +161,6 @@ h2 span{ position:absolute; top:-7.5vh;}
 .system-photo { 
     max-height: 34vh;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
 
 }
 

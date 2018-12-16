@@ -1,0 +1,14 @@
+    .addresses-container { 
+      flex-wrap: wrap;
+    }
+
+@media only screen and (max-width: 1000px) {
+    .addresses-container { 
+      flex-direction: column;
+
+    }
+    .addresses {
+      min-width: 100%;
+    }
+
+}

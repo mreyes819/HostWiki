@@ -10,21 +10,28 @@ const SanFrancisco = ({data}) => (
     <Helmet
         title={`Space Guides - San Francisco`}
       >
-        <html lang="en" />
+        <html lang='en' />
     </Helmet>
-    <h1 className="city">San Francisco</h1>
+    <h1 className='city'>San Francisco</h1>
     <div className='space-list-container'>
       {data.allContentfulSpace.edges.filter(space => space.node.city === 'San Francisco').map(space => { 
-        console.log(space)
+        let slackAppLink = ''
+        if(space.node.linkSlackApp) {
+          slackAppLink = `slack://channel?team=${space.node.linkSlackApp.teamId}&id=${space.node.linkSlackApp.channelId}`
+          console.log()
+        }
         return (
           <div key={space.node.id} className='button-container' >
-            <Link to={`san-francisco/${space.node.slug}`}>
+            
 
               <div className='title-box'>
                 <h2 className='space-link-title'>{space.node.spaceName}</h2>
 
                 <div> 
-                  <a href={space.node.linkHostApp}> Host App</a>
+                  <a href={space.node.linkHostApp} target='_blank'> Host App</a>
+                  <a href={slackAppLink}> Slack App</a>
+                  
+                  <Link to={`san-francisco/${space.node.slug}`} target='_blank'> Space Guide</Link>
                 </div>
                 
                 
@@ -35,7 +42,7 @@ const SanFrancisco = ({data}) => (
                 <Img className='entrance-photo' fluid={space.node.heroPhoto.fluid}/>
               </div>      
 
-            </Link>
+            
           </div>
         )
       })}
