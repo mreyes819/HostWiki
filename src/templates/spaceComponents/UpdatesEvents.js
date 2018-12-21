@@ -4,7 +4,8 @@ class UpdatesEvents extends React.Component {
 
   render() {
     return (
-      <section className='system'>      
+      <div className='system'>
+      <section className='sub-section'>      
           <h2> 
             <span id='updates-events'></span>
             Updates & Events
@@ -17,11 +18,12 @@ class UpdatesEvents extends React.Component {
                   {update.title}
                 </h3>
 
-                <p>{update.message.message}</p>
+                <div key={update.id} dangerouslySetInnerHTML={{ __html: update.message.childMarkdownRemark.html }} />
               </div>
             )
           })}                
       </section>
+      </div>
     )
   }
 }

@@ -1,0 +1,41 @@
+.carousel { 
+    margin-left: 20px;
+    margin-bottom: 50px;
+    background-color: rgb(25,36,41);
+}
+
+.carousel-caption {
+    left: auto !important;
+    right: auto !important;
+    width: 100%;
+    background-color: rgb(25,36,41);
+    opacity: .90;
+    color: yellow !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+
+/* caption for non carousel components*/
+.caption{ 
+    position: relative;
+    opacity: .97;
+    left: auto;
+    right: auto;
+    bottom: 90px;
+    padding-top: 2px;
+    height: 100%;
+    text-align: center;
+    opacity: .90;
+    background-color: rgb(25,36,41);
+    color: yellow;
+}
+
+@media only screen and (min-width: 800px) {
+  .carousel-caption {
+  
+  }
+}
+

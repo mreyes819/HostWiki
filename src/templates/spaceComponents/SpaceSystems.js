@@ -1,7 +1,9 @@
 import React from 'react';
 import Img from "gatsby-image"
+import Carousel from './Carousel';
+import Helmet from 'react-helmet'
 
- 
+
 class Systems extends React.Component {
 
   render() {
@@ -25,44 +27,47 @@ class Systems extends React.Component {
                 systemDescription = <div className='description' key={system.id} dangerouslySetInnerHTML={{ __html: system.systemDescription.childMarkdownRemark.html }} />
               }
 
+              if(system.steps.length === 1) { 
+                return(
+                  <section key={system.id} className='sub-section'> 
 
-              return (
-                <section key={system.id} className='sub-section'> 
-
-                  <div className='section-component-title-desc'>
-                    <h3>
-                      <span id={system.spaceSystems.split(' ').join('')}></span>
-                      {system.spaceSystems}
-                    </h3>
-                    {systemDescription}
-                  </div>
-
-
-                  {system.steps.map(step => { 
-                    let stepDescription, photo;
-
-                    if(step.description) { 
-                      stepDescription = <div className='description' key={step.id} dangerouslySetInnerHTML={{ __html: step.description.childMarkdownRemark.html }} />
-                    }
-
-                    if(step.photo.fluid) { 
-                      photo = <Img fluid={step.photo.fluid} className='system-photo' />
-                    }
-
-
-                    return (
-                      <div key={step.id} >
-                        <div className='section-component'>
-                          <h4>{step.title}</h4>
-                          {stepDescription}
-                          {photo}  
+                    <div className='section-component-title-desc'>
+                      <h2>
+                        <span id={system.spaceSystems.split(' ').join('')}></span>
+                        {system.spaceSystems}
+                      </h2>
+                      {systemDescription}
+                    </div>
+                    <div key={system.steps[0].id} >
+                      <div className='section-component'>
+                        <Img fluid={system.steps[0].photo.fluid} className='system-photo' />
+                        <div className='caption'>
+                          <h4>{system.steps[0].title}</h4>
+                          <div key={system.steps[0].id} dangerouslySetInnerHTML={{ __html: system.steps[0].description.childMarkdownRemark.html }} />
                         </div>
-                        
                       </div>
-                    )
-                  })}
-                </section>
-              )
+                      
+                    </div>
+                  </section>
+                )
+              } else { 
+                return(
+                  <section key={system.id} className='sub-section'> 
+
+                    <div className='section-component-title-desc'>
+                      <h2>
+                        <span id={system.spaceSystems.split(' ').join('')}></span>
+                        {system.spaceSystems}
+                      </h2>
+                      {systemDescription}
+                    </div>
+
+                    <Carousel steps={system.steps}/>
+
+                  </section>                    
+                  
+                )
+              }
             })}
 
           </div>

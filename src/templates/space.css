@@ -64,6 +64,9 @@ section div {
     box-shadow: 0px 0px 7px #000000;*/
     border-bottom: 1px solid grey;
     /*border-radius: 5px;*/
+
+
+
 }
 
 
@@ -73,7 +76,7 @@ section div {
 }
 
 .sub-section { 
-    
+    width: 100%;
     margin-bottom: 5vh;
 
     /*border: 1px solid blue;*/
@@ -121,6 +124,7 @@ section div {
 
 
 
+
 h3 { position:relative; }
 h3 span{ position:absolute; top:-9vh;}
 
@@ -140,26 +144,28 @@ h2 span{ position:absolute; top:-7.5vh;}
     right: 0;
     background-color: rgb(247,247,247);
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-right: 10px;
+    /*padding-right: 10px;*/
     border-bottom: 7vh solid rgb(25,36,41);
+
     
 }
 
 
 .sidenav-layout { 
     margin-left: 1vw;
+    
 }
 
 .sidenav-layout li { 
     font-size: 12pt;
     list-style-type: none;
-    margin: 0;
-    padding-left: .25vw;
-    border: 0;    
+    
+    
+    
 }
 
 .system-photo { 
-    max-height: 34vh;
+    max-height: 45vh;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
 
 }
@@ -191,6 +197,7 @@ h2 span{ position:absolute; top:-7.5vh;}
 .sidenav-layout li { 
     margin: -5px;
 }
+
 
 li a { 
     text-decoration: none;

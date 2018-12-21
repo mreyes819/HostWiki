@@ -9,9 +9,9 @@ class Address extends React.Component {
 
 
     return (
-      <div className='addresses-container' style={{display: 'flex', 'justify-content': 'space-between'}}>
+      <div className='addresses-container' style={{display: 'flex', 'justifyContent': 'space-between'}}>
         {this.props.addresses.map((address, i) => { 
-          if(i === 0) { 
+          if(i === 0 && this.props.addresses.length % 2 !== 0) { 
             return (
               <div key={address.id} style={{width: '100%'}} className='addresses'> 
                 <h3> {address.title} </h3>
@@ -20,7 +20,7 @@ class Address extends React.Component {
             )
           } else {
             return (
-              <div key={address.id} style={{width: '49%'}} className='addresses'> 
+              <div key={address.id} style={{width: '49.5%'}} className='addresses'> 
                 <h3> {address.title} </h3>
                 <MapComponent defaultCenter={{lat: address.street.lat, lng: address.street.lon}} />
               </div>

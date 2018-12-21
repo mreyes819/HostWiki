@@ -2,24 +2,37 @@ import React from "react"
 import { graphql } from "gatsby" // Link, 
 import * as PropTypes from "prop-types"
 import Helmet from 'react-helmet'
+import Img from "gatsby-image";
 import './space.css'
 import Navigation from '../components/navigation';
-import UpdatesEvents from './spaceComponents/UpdatesEvents';
+import AboutSpace from './spaceComponents/AboutSpace';
 import AboutPhotos from './spaceComponents/AboutPhotos';
 import Address from './spaceComponents/Address';
-import Systems from './spaceComponents/SpaceSystems';
-import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
-import Messages from './spaceComponents/Messages';
-import FormsMenu from './spaceComponents/SideMenuForms';
+import UpdatesEvents from './spaceComponents/UpdatesEvents';
 import ChecklistSchedule from './spaceComponents/ChecklistSchedule';
+import Systems from './spaceComponents/SpaceSystems';
 import CordMap from './spaceComponents/CordMap';
-import AboutSpace from './spaceComponents/AboutSpace';
-import Img from "gatsby-image";
+import Messages from './spaceComponents/Messages';
 
 
-// Will I still want to create internal links for these components?
-// import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
+import FormsMenu from './spaceComponents/SideMenuForms';
+import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
 import MessagesMenu from './spaceComponents/SideMenuMessages';
+import Carousel from './spaceComponents/Carousel'
+// import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
+
+
+
+
+
+
+import Scrollspy from 'react-scrollspy'
+// http://makotot.github.io/react-scrollspy/
+// https://www.npmjs.com/package/react-scrollspy
+
+
+
+
 
 
 
@@ -30,6 +43,41 @@ const propTypes = {
 }
 
 class SpaceTemplate extends React.Component {
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     active: 1
+  //   }
+  //   this.handleScroll = this.handleScroll.bind(this);
+  // }
+
+  // componentDidMount() {
+  //   this.scrollSpyText.addEventListener('scroll', this.handleScroll);
+  //   let scrollSpySections = this.scrollSpyText.getElementsByTagName('h4');
+  //   for (let i = 0; i < scrollSpySections.length; i++) {
+  //     let currentOffsetTop = scrollSpySections[i].offsetTop - 16;
+  //     if (!scrollSpySectionsOffset.includes(currentOffsetTop)) {
+  //       scrollSpySectionsOffset.push(currentOffsetTop);
+  //     }
+  //   }
+  // }
+
+  // componentWillUnmount() {
+  //   this.scrollSpyText.removeEventListener('scroll', this.handleScroll);
+  // }
+
+  // handleScroll() {
+  //   for (let i = 0; i < scrollSpySectionsOffset.length; i++) {
+  //     if (this.scrollSpyText.scrollTop > scrollSpySectionsOffset[i]) {
+  //       if (this.scrollSpyText.scrollTop > scrollSpySectionsOffset[i+1]) {
+  //       } else {
+  //         this.setState({active: i+1});
+  //       }
+  //     }
+  //   }
+
+  // }
 
 
   render() {
@@ -64,8 +112,10 @@ class SpaceTemplate extends React.Component {
       <div className='screen'>
 
         <Helmet title={`Space Guide - ${space.spaceName}`}>
-          <html lang="en" />
-        </Helmet>
+
+      
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+        </Helmet>         
 
         <Navigation /> 
 
@@ -73,7 +123,10 @@ class SpaceTemplate extends React.Component {
 
 
           <div className='main'>
-            {aboutSpace}
+
+            
+
+            {aboutSpace}   
             {updates}
             {checkSchedule}                                
             {systems}
@@ -82,58 +135,52 @@ class SpaceTemplate extends React.Component {
             <div className='end'> </div>           
           </div>
 
-          <div className='sidenav sidenav-layout'>
-            <h2> 
-              <a href='#about-space'> 
-                About {space.spaceName} 
-              </a>
-            </h2>
+          <Scrollspy className='sidenav sidenav-layout' 
+                     items={ ['about-space', 'updates-events', 'schedule', 'where-how', 'cord-map', 'messages'] } 
+                     currentClassName="is-current"
+                     offset={ 20 }
+                     style={ {fontWeight: 300} }
+                     offset={ -20 }
+                     onUpdate={
+                       (el) => {
+                         console.log(el)
+                       }
+                     }>
+
+            <li> 
+              <a href='#about-space'> About {space.spaceName} </a>
+            </li>
 
 
-            <h2> 
-              <a href='#updates-events'> 
-                Updates & Events
-              </a>
-            </h2>       
+            <li> 
+              <a href='#updates-events'> Updates & Events </a>
+            </li>       
 
-            <h2> 
-              <a href='#schedule'> 
-                Schedule
-              </a>
-            </h2>
+            <li> 
+              <a href='#schedule'> Schedule </a>
+            </li>
 
-            <h2> 
-              <a href='#where-how'> 
-                Where & How To 
-              </a>
-            </h2>
-             {systemsMenuLink}
+            <li> 
+              <a href='#where-how'> Where & How To </a>
+            </li>
+            {systemsMenuLink}
 
+            <li> 
+              <a href='#cord-map'> Cord Map </a>
+             </li>
 
-            <h2> 
-              <a href='#cord-map'> 
-                Cord Map
-              </a>
-             </h2>
-
-
-
-            <h2> 
-              <a href='#messages'> 
-                Messages 
-              </a>
-            </h2>
-              {messagesMenuLink}
+            <li> 
+              <a href='#messages'> Messages </a>
+            </li>
+            {messagesMenuLink}
 
 
             <div className='forms-checklist'>
-            <h2> Forms & Checklists </h2>
+              <li> Forms & Checklists </li>
               {formsMenuLink}
             </div>
-
-
             
-          </div>          
+          </Scrollspy>          
 
         </div>  {/*page-container*/}
       </div> /*screen*/
@@ -186,7 +233,10 @@ query($id: String!){
       title
       date
       message{
-        message
+        message 
+        childMarkdownRemark{
+          html
+        }
       }
     }
     scheduleChecklist{
@@ -236,13 +286,16 @@ query($id: String!){
       type
       url
     }
-    messages{
+    messages {
       id
       timeMilitary
       title
-      message{
+      message {
         id
         message
+        childMarkdownRemark{
+          html
+        }
       }
     }
     
