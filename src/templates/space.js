@@ -19,6 +19,7 @@ import FormsMenu from './spaceComponents/SideMenuForms';
 import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
 import MessagesMenu from './spaceComponents/SideMenuMessages';
 import Carousel from './spaceComponents/Carousel'
+import Iframe from 'react-iframe'
 // import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
 
 
@@ -106,6 +107,8 @@ class SpaceTemplate extends React.Component {
       formsMenuLink = <FormsMenu forms={space.forms}/>
     }
 
+    let systemitems = space.systems2.map(system => system.spaceSystems.split(' ').join(''))
+    let scrollSpyItems = ['about-space', 'updates-events', 'schedule', 'where-how', ...systemitems, 'cord-map', 'messages']; 
 
     return (
 
@@ -123,9 +126,6 @@ class SpaceTemplate extends React.Component {
 
 
           <div className='main'>
-
-            
-
             {aboutSpace}   
             {updates}
             {checkSchedule}                                
@@ -136,7 +136,7 @@ class SpaceTemplate extends React.Component {
           </div>
 
           <Scrollspy className='sidenav sidenav-layout' 
-                     items={ ['about-space', 'updates-events', 'schedule', 'where-how', 'cord-map', 'messages'] } 
+                     items={ scrollSpyItems } 
                      currentClassName="is-current"
                      offset={ 20 }
                      style={ {fontWeight: 300} }
