@@ -23,10 +23,6 @@ import Iframe from 'react-iframe'
 // import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
 
 
-
-
-
-
 import Scrollspy from 'react-scrollspy'
 // http://makotot.github.io/react-scrollspy/
 // https://www.npmjs.com/package/react-scrollspy
@@ -45,42 +41,6 @@ const propTypes = {
 
 class SpaceTemplate extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     active: 1
-  //   }
-  //   this.handleScroll = this.handleScroll.bind(this);
-  // }
-
-  // componentDidMount() {
-  //   this.scrollSpyText.addEventListener('scroll', this.handleScroll);
-  //   let scrollSpySections = this.scrollSpyText.getElementsByTagName('h4');
-  //   for (let i = 0; i < scrollSpySections.length; i++) {
-  //     let currentOffsetTop = scrollSpySections[i].offsetTop - 16;
-  //     if (!scrollSpySectionsOffset.includes(currentOffsetTop)) {
-  //       scrollSpySectionsOffset.push(currentOffsetTop);
-  //     }
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   this.scrollSpyText.removeEventListener('scroll', this.handleScroll);
-  // }
-
-  // handleScroll() {
-  //   for (let i = 0; i < scrollSpySectionsOffset.length; i++) {
-  //     if (this.scrollSpyText.scrollTop > scrollSpySectionsOffset[i]) {
-  //       if (this.scrollSpyText.scrollTop > scrollSpySectionsOffset[i+1]) {
-  //       } else {
-  //         this.setState({active: i+1});
-  //       }
-  //     }
-  //   }
-
-  // }
-
-
   render() {
     const space = this.props.data.contentfulSpace;
     let updates, aboutPhotos, aboutDescription, aboutAddress, systems, messages, systemsMenuLink, 
@@ -98,6 +58,7 @@ class SpaceTemplate extends React.Component {
     } if (space.systems2) {
       systems = <Systems systems={space.systems2} />
       systemsMenuLink = <SystemsMenu systems={space.systems2} />
+      let systemItems = space.systems2.map(system => system.spaceSystems.split(' ').join(''))
     } if (space.cordMap) { 
       cordMapComp = <CordMap cordMap={space.cordMap} className='system-photo' />
     } if (space.messages) {
@@ -107,8 +68,8 @@ class SpaceTemplate extends React.Component {
       formsMenuLink = <FormsMenu forms={space.forms}/>
     }
 
-    let systemitems = space.systems2.map(system => system.spaceSystems.split(' ').join(''))
-    let scrollSpyItems = ['about-space', 'updates-events', 'schedule', 'where-how', ...systemitems, 'cord-map', 'messages']; 
+    
+    let scrollSpyItems = ['about-space', 'updates-events', 'schedule', 'where-how', 'cord-map', 'messages']; 
 
     return (
 
@@ -140,7 +101,7 @@ class SpaceTemplate extends React.Component {
                      currentClassName="is-current"
                      offset={ 20 }
                      style={ {fontWeight: 300} }
-                     offset={ -20 }
+                     offset={ 400 }
                      onUpdate={
                        (el) => {
                          console.log(el)
@@ -172,7 +133,7 @@ class SpaceTemplate extends React.Component {
             <li> 
               <a href='#messages'> Messages </a>
             </li>
-            {messagesMenuLink}
+            
 
 
             <div className='forms-checklist'>

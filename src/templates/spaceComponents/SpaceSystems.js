@@ -14,9 +14,6 @@ class Systems extends React.Component {
             <span id='where-how'></span>
             Where & How to 
           </h2>   
-          
-
-
           <div className='system'>
 
             {this.props.systems.map(system => { 
@@ -29,7 +26,10 @@ class Systems extends React.Component {
 
               if(system.steps.length === 1) { 
                 return(
-                  <section key={system.id} className='sub-section'> 
+                  <section 
+                    key={system.id} 
+                    className='sub-section' 
+                    id={system.spaceSystems.split(' ').join('')}>
 
                     <div className='section-component-title-desc'>
                       <h2>
@@ -52,7 +52,10 @@ class Systems extends React.Component {
                 )
               } else { 
                 return(
-                  <section key={system.id} className='sub-section'> 
+                  <section 
+                    key={system.id} 
+                    className='sub-section' 
+                    id={system.spaceSystems.split(' ').join('')}>
 
                     <div className='section-component-title-desc'>
                       <h2>

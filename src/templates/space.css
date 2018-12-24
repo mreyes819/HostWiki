@@ -4,12 +4,15 @@
     /*border-bottom: 1px solid rgb(25,36,41);;*/
 }
 
+.is-current { 
+    font-weight: bold !important;
+}
+
 .page-container { 
     margin: 7vh auto;
     width: 100vw; 
     display: flex;  
     flex-direction: column;
-
 }
 
 .main {
@@ -146,6 +149,8 @@ h2 span{ position:absolute; top:-7.5vh;}
     overflow-x: hidden; /* Disable horizontal scroll */
     /*padding-right: 10px;*/
     border-bottom: 7vh solid rgb(25,36,41);
+    padding-top: 2vh;
+    padding-left: 2vw;
 
     
 }

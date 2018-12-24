@@ -6,10 +6,10 @@ class Systems extends React.Component {
 
   render() {
     return (
-      <article>
+      <article id='messages'>
     
         <h2>
-          <span id='messages'></span>
+          <span></span>
           Messages
         </h2>      
         <div className=''>
