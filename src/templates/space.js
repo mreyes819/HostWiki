@@ -96,17 +96,14 @@ class SpaceTemplate extends React.Component {
             <div className='end'> </div>           
           </div>
 
-          <Scrollspy className='sidenav sidenav-layout' 
-                     items={ scrollSpyItems } 
-                     currentClassName="is-current"
-                     offset={ 20 }
-                     style={ {fontWeight: 300} }
-                     offset={ 400 }
-                     onUpdate={
-                       (el) => {
-                         console.log(el)
-                       }
-                     }>
+          <Scrollspy 
+            className='sidenav sidenav-layout' 
+            items={ scrollSpyItems } 
+            currentClassName="is-current"
+            offset={ 20 }
+            style={ {fontWeight: 300} }
+            offset={ -300 }
+          >
 
             <li> 
               <a href='#about-space'> About {space.spaceName} </a>
@@ -177,8 +174,11 @@ query($id: String!){
         title
         photo {
           id
-          fluid(maxWidth: 800, maxHeight: 600) {
+          fluid(maxWidth: 800) {
             ...GatsbyContentfulFluid
+          }
+          fixed(width: 800){
+            ...GatsbyContentfulFixed
           }
         }
         description {
@@ -261,7 +261,7 @@ query($id: String!){
     }
     
     cordMap{
-      fluid(maxWidth: 800, maxHeight: 600) {
+      fluid(maxWidth: 1000) {
         ...GatsbyContentfulFluid
       }
     }    

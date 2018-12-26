@@ -1,11 +1,20 @@
 import React from 'react';
-
+import Scrollspy from 'react-scrollspy'
  
 class SpaceSystemMenu extends React.Component {
 
   render() {
+    let items = this.props.systems.map(system => 
+      system.spaceSystems.split(' ').join('')
+    );
+
     return (
-      <ul>
+      <Scrollspy
+        items={ items }
+        currentClassName="is-current"
+        style = {{ fontWeight: 300}}
+        offset={ 400 }
+        >
         {this.props.systems.map(system => { 
           return (
             <li key={system.id}>
@@ -15,7 +24,7 @@ class SpaceSystemMenu extends React.Component {
             </li>
           )
         })}
-      </ul>
+      </Scrollspy>
     )
     
   }

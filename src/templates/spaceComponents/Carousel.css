@@ -12,20 +12,20 @@
     opacity: .90;
     color: yellow !important;
     margin: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 10px !important;
     padding-bottom: 10px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 15px !important;
 }
 
 
 /* caption for non carousel components*/
 .caption{ 
     position: relative;
-    opacity: .97;
     left: auto;
     right: auto;
     bottom: 90px;
     padding-top: 2px;
+    padding-bottom: 10px;
     height: 100%;
     text-align: center;
     opacity: .90;

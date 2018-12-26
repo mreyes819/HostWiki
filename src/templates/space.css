@@ -170,7 +170,10 @@ h2 span{ position:absolute; top:-7.5vh;}
 }
 
 .system-photo { 
-    max-height: 45vh;
+    max-height: 50vh;
+    height: 100%;
+    
+    min-width: 100%;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
 
 }
@@ -217,7 +220,7 @@ h2 a {
 
 @media only screen and (min-width: 1200px) {
     .system-photo { 
-        max-height: 55vh;
+        max-height: 75vh;
     }
 
 }
