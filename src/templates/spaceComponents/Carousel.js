@@ -2,7 +2,6 @@ import React from 'react';
 import Img from "gatsby-image"
 import { Carousel} from 'react-bootstrap';
 import './Carousel.css';
-import Helmet from 'react-helmet'
 
 class ControlledCarousel extends React.Component {
   constructor(props, context) {

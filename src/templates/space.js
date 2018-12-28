@@ -33,7 +33,9 @@ import Scrollspy from 'react-scrollspy'
 
 
 
-// import Typeform from './spaceComponents/typeform'; // won't build uses global or window - noop for gatsby but there might be a workaround. 
+// import Typeform from './spaceComponents/typeform'; // won't build uses 
+import Typeform2 from './spaceComponents/typeformIframe'; // won't build uses global or window - noop for gatsby but there might be a workaround. 
+import ModalTypeform from './spaceComponents/Modal-Iframe-Typeform';
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -93,6 +95,8 @@ class SpaceTemplate extends React.Component {
             {systems}
             {cordMapComp}
             {messages}
+            
+            
             <div className='end'> </div>           
           </div>
 
@@ -137,6 +141,15 @@ class SpaceTemplate extends React.Component {
               <li> Forms & Checklists </li>
               {formsMenuLink}
             </div>
+
+            <div className='forms-checklist'>
+              <li> Quick Links </li>
+              <ul> 
+                <li><a>Host App</a></li>
+                <li><a>Slack Channel</a></li>
+              </ul>
+              
+            </div>            
             
           </Scrollspy>          
 
@@ -155,6 +168,11 @@ query($id: String!){
   contentfulSpace(id: {eq: $id}) {
     id
     spaceName
+    linkHostApp
+    linkSlackApp{
+      teamId
+      channelId
+    }    
     stockPhotos{
       id
       fluid(maxWidth: 2000, maxHeight: 1000) {

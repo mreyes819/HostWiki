@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalForm from './Modal-Iframe-Typeform';
 
  
 class FormsMenu extends React.Component {
@@ -8,11 +9,7 @@ class FormsMenu extends React.Component {
       <ul> 
         {this.props.forms.map(form => { 
           return (
-            <li key={form.id}>
-              <a href={form.url} target="_blank" rel="noopener noreferrer" >
-                {form.type}
-              </a>
-            </li> 
+            <ModalForm form={form} />
            )
         })}
       </ul>

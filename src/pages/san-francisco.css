@@ -1,11 +1,12 @@
 
 .city {
-    margin-left: 50px;
-    margin-top: 90px;
+    margin-top: 5vh;
+    border-bottom: 5px solid yellow;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .space-list-container {
-    text-decoration: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: column;
@@ -13,10 +14,9 @@
 
 .button-container {
     position: relative;
-    text-decoration: none;
     margin: 3px;
     height: 30vh;
-    width: 26vw;
+    min-width: calc(100% / 3 - 6px);
     border-radius: 5px;
     box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.2);
     background-color: black;
@@ -29,14 +29,18 @@
     height: 100%;
     width: 100%;
     border-radius: 5px;
-    /*border-radius: 30px 3px ; /*asdf*/*/
-    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.2);
     opacity: .8;
 }
 
 
 .button-container:hover .entrance-photo{
     opacity: 1;
+    
+}
+
+.button-container:hover .title-box{
+    color: yellow;
+    text-shadow: 0px 0px 4px #000000;
 }
 
 
@@ -48,7 +52,10 @@
     right: 5%;
     z-index: 2;
     color: white;
+    
 }
+
+
 
 .space-link-title {
     z-index: 2;
@@ -59,18 +66,20 @@
 
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 1200px) {
     .button-container {
-        width: 47%;
+        
     }
 }
 
-@media only screen and (max-width: 705px) {
+@media only screen and (max-width: 850px) {
     .button-container {
-        width: 44%;
-        height: 130px;
+        width: calc(100% / 2 - 6px);
     }
-    .entrance-photo {
-        height: 130px;
+}
+
+@media only screen and (max-width: 500px) {
+    .button-container {
+        height: 175px;
     }
 }

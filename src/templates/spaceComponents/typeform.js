@@ -8,7 +8,7 @@ class Typeform extends React.Component {
       url={'https://spaciousapp.typeform.com/to/rsq8m0'}  
       hideHeaders={true}
       hideFooter={true}
-      style={{position:'relative'}}
+      style={{position:'relative', height: '75vh'}}
       />
     )
   }
