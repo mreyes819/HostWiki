@@ -6,7 +6,7 @@ class Typeform extends React.Component {
     return (
       <Iframe url="https://spaciousapp.typeform.com/to/rsq8m0"
         width="100%"
-        height="75vh"
+        height="70vh"
         position="relative"
         />
     )

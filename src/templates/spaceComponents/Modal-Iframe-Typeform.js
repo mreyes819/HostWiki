@@ -1,6 +1,6 @@
 import React from "react"
 import Iframe from 'react-iframe'
-import { Modal, Popover, Tooltip, Button, OverlayTrigger } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 
 class ModalIframeTypeform extends React.Component {
   constructor(props, context) {
@@ -24,7 +24,6 @@ class ModalIframeTypeform extends React.Component {
 
   render() {
 
-    const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
 
     return (
       <div> 

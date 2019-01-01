@@ -96,7 +96,6 @@ class SpaceTemplate extends React.Component {
             {cordMapComp}
             {messages}
             
-            
             <div className='end'> </div>           
           </div>
 
@@ -106,7 +105,7 @@ class SpaceTemplate extends React.Component {
             currentClassName="is-current"
             offset={ 20 }
             style={ {fontWeight: 300} }
-            offset={ -300 }
+            offset={ 600 }
           >
 
             <li> 
@@ -115,10 +114,11 @@ class SpaceTemplate extends React.Component {
 
 
             <li> 
+              <input type="checkbox" />            
               <a href='#updates-events'> Updates & Events </a>
             </li>       
 
-            <li> 
+            <li>
               <a href='#schedule'> Schedule </a>
             </li>
 
@@ -267,7 +267,6 @@ query($id: String!){
     }
     messages {
       id
-      timeMilitary
       title
       message {
         id

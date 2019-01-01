@@ -18,6 +18,7 @@ class SpaceSystemMenu extends React.Component {
         {this.props.systems.map(system => { 
           return (
             <li key={system.id}>
+              <input type="checkbox" />            
               <a href={`#${system.spaceSystems.split(' ').join('')}`}> 
                 {system.spaceSystems} 
               </a>

@@ -5,12 +5,12 @@ class CordMap extends React.Component {
 
   render() {
     return (
-      <section>
-        <h2> 
+      <section className='sub-section'>
+        <h2 className='section-component-title-desc'> 
           <span id='cord-map'></span>
           Cord Map 
         </h2>
-        <div className='system'>
+        <div className='section-component'>
           <Img fluid={this.props.cordMap.fluid} className='system-photo' />
         </div>
       </section> 

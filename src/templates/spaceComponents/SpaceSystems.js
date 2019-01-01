@@ -1,7 +1,6 @@
 import React from 'react';
 import Img from "gatsby-image"
 import Carousel from './Carousel';
-import Helmet from 'react-helmet'
 
 
 class Systems extends React.Component {

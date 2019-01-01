@@ -35,6 +35,7 @@
 
 .button-container:hover .entrance-photo{
     opacity: 1;
+    cursor: pointer;
     
 }
 
