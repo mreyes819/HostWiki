@@ -8,12 +8,11 @@
     background-color: rgb(25,36,41);
     color: yellow;
     padding: .7em;
-    font-size: 2.25rem !important;
     font-weight: 400;
 }
 
 .main h3 { 
-    font-size: 1.75rem !important;
+    
     margin-top: 3vh;
 }
 
@@ -40,20 +39,17 @@
 
 .main {
     width: 65vw;
-    /*border: 2px solid blue;*/
+    
     padding: 0vh 5vw;
     background-color: white;
-    /*rgb(25,36,41);*/
     min-height: 86vh;
 }
 
 section { 
-    margin-bottom: 50vh;
-    padding-bottom: 5vh;
+    margin-bottom: 50vh;  
 }
 
 section h2 { 
-    font-size: 2.5rem !important;
     margin: 0;
     padding: 0;
     margin-bottom: 10px;
@@ -62,7 +58,6 @@ section h2 {
 }
 
 section h3 { 
-    font-size: 1.5rem !important;
     margin: 0;
     padding: 0;
 }
@@ -174,7 +169,6 @@ section div {
 
 
 .sidenav-layout li { 
-    font-size: 1.4rem !important;
     font-weight: 400;
     list-style-type: none;
     margin: -1px;
@@ -185,7 +179,6 @@ section div {
 
 .sidenav h1 { 
     width: 100%;
-    font-size: 2rem !important;
     font-weight: 500;
     margin: 5px;
 }
