@@ -21,51 +21,51 @@ class SpaceTemplate extends React.Component {
     let systemScrollTitleItems, scrollSpyItems
     
     if(space.schedulesChecks) { 
-      systemScrollTitleItems = space.schedulesChecks.map(system => system.id)
-      // console.log('system title items: ', systemScrollTitleItems)
-      scrollSpyItems = ['about','events-updates', ...systemScrollTitleItems]; 
+ 
     }
 
     
 
     let SystemScrollItems;
     if(space.schedulesChecks) { 
+      systemScrollTitleItems = space.schedulesChecks.map(system => system.id)
+      scrollSpyItems = ['about','events-updates', ...systemScrollTitleItems];
+
       SystemScrollItems = space.schedulesChecks.map(system => {        
-      
-      let subScrollItems = system.components.map(component => component.id)
+        let subScrollItems = system.components.map(component => component.id)
 
 
-      return (
-        <li key={system.id}>
-          <span className='menu-system'>
-            <a href={`#${system.id}`}>
-            {system.title}
-            </a>  
+        return (
+          <li key={system.id}>
+            <span className='menu-system'>
+              <a href={`#${system.id}`}>
+              {system.title}
+              </a>  
 
-            <Scrollspy               
-              items={ subScrollItems } 
-              currentClassName="is-current2"
-              offset = { 110 }
-              style={ {fontWeight: 200} }
-              rootEl = {''}
-              scrolledPastClassName={ 'is-past' }
-              >
+              <Scrollspy               
+                items={ subScrollItems } 
+                currentClassName="is-current2"
+                offset = { 110 }
+                style={ {fontWeight: 200} }
+                rootEl = {''}
+                scrolledPastClassName={ 'is-past' }
+                >
 
-              {system.components.map(component => { 
-                return (
-                  <li key={component.id} className='menu-component'>
-                    <a href={`#${component.id}`}>
-                      {component.title}
-                    </a>
-                  </li>
-                )
-              })}
-            </Scrollspy>
-          </span>
-        </li>
-      )
-    })
-  }
+                {system.components.map(component => { 
+                  return (
+                    <li key={component.id} className='menu-component'>
+                      <a href={`#${component.id}`}>
+                        {component.title}
+                      </a>
+                    </li>
+                  )
+                })}
+              </Scrollspy>
+            </span>
+          </li>
+        )
+      })
+    }
 
 
     // console.log(SystemScrollItems)
@@ -90,7 +90,6 @@ class SpaceTemplate extends React.Component {
       <div className='screen'>
 
         <Helmet title={`Space Guide - ${space.spaceName}`}>
-
       
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         </Helmet>         
