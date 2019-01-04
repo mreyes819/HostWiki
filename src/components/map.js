@@ -9,13 +9,12 @@ class MapComponent extends React.Component {
     this.state = {
       geo: {},
       place_id: 'ChIJIQBpAG2ahYAR_6128GcTUEo', 
-      address: '',
-      defaultCenter: {}
+      address: ''
     }
   }
 
   componentDidMount() { 
-    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.props.defaultCenter.lat},${this.props.defaultCenter.lon}&key=AIzaSyDAs1iNCU5Ovq46wkjGa8q3PSDQMpOvXrg`).then(res => { 
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${this.props.defaultCenter.lat},${this.props.defaultCenter.lng}&key=AIzaSyDAs1iNCU5Ovq46wkjGa8q3PSDQMpOvXrg`).then(res => { 
 
       if(res.data.results) { 
         this.setState({

@@ -3,6 +3,7 @@ module.exports = {
     title: `Spacious`,
   },
   plugins: [
+    `gatsby-plugin-antd`,
     `gatsby-plugin-typography`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,

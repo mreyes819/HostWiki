@@ -1,41 +1,14 @@
 import React from "react"
-import { graphql } from "gatsby" // Link, 
+import { graphql } from "gatsby"  
 import * as PropTypes from "prop-types"
 import Helmet from 'react-helmet'
-import Img from "gatsby-image";
 import './space.css'
 import Navigation from '../components/navigation';
-import AboutSpace from './spaceComponents/AboutSpace';
-import AboutPhotos from './spaceComponents/AboutPhotos';
-import Address from './spaceComponents/Address';
-import UpdatesEvents from './spaceComponents/UpdatesEvents';
-import ChecklistSchedule from './spaceComponents/ChecklistSchedule';
-import Systems from './spaceComponents/SpaceSystems';
-import CordMap from './spaceComponents/CordMap';
-import Messages from './spaceComponents/Messages';
-
-
-import FormsMenu from './spaceComponents/SideMenuForms';
-import SystemsMenu from './spaceComponents/SideMenuSpaceSystems';
-import MessagesMenu from './spaceComponents/SideMenuMessages';
-import Carousel from './spaceComponents/Carousel'
-import Iframe from 'react-iframe'
-// import UpdateEventMenu from './spaceComponents/SideMenuUpdateEvent';
-
-
 import Scrollspy from 'react-scrollspy'
-// http://makotot.github.io/react-scrollspy/
-// https://www.npmjs.com/package/react-scrollspy
+import About from './guideTemplates/About';
+import UpdatesEvents from './guideTemplates/UpdatesEvents';
+import ScheduleCheck from './guideTemplates/SubSystem';
 
-
-
-
-
-
-
-// import Typeform from './spaceComponents/typeform'; // won't build uses 
-import Typeform2 from './spaceComponents/typeformIframe'; // won't build uses global or window - noop for gatsby but there might be a workaround. 
-import ModalTypeform from './spaceComponents/Modal-Iframe-Typeform';
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -45,34 +18,73 @@ class SpaceTemplate extends React.Component {
 
   render() {
     const space = this.props.data.contentfulSpace;
-    let updates, aboutPhotos, aboutDescription, aboutAddress, systems, messages, systemsMenuLink, 
-    updateEventMenuLink, messagesMenuLink, formsMenuLink, checkSchedule, cordMapComp, aboutSpace;
-
-
-
-    if (space.aboutSpace) {
-      aboutSpace = <AboutSpace space={space} />
-    } if(space.updates) {
-      updates = <UpdatesEvents updates={space.updates} />
-      // updateEventMenuLink = <UpdateEventMenu events={space.updates}/>
-    } if (space.scheduleChecklist) { 
-      checkSchedule = <ChecklistSchedule scheduleChecklist={space.scheduleChecklist} />
-    } if (space.systems2) {
-      systems = <Systems systems={space.systems2} />
-      systemsMenuLink = <SystemsMenu systems={space.systems2} />
-      let systemItems = space.systems2.map(system => system.spaceSystems.split(' ').join(''))
-    } if (space.cordMap) { 
-      cordMapComp = <CordMap cordMap={space.cordMap} className='system-photo' />
-    } if (space.messages) {
-      messages = <Messages messages={space.messages} /> 
-      messagesMenuLink = <MessagesMenu messages={space.messages}/> 
-    } if (space.forms) { 
-      formsMenuLink = <FormsMenu forms={space.forms}/>
+    let systemScrollTitleItems, scrollSpyItems
+    
+    if(space.schedulesChecks) { 
+      systemScrollTitleItems = space.schedulesChecks.map(system => system.id)
+      // console.log('system title items: ', systemScrollTitleItems)
+      scrollSpyItems = ['about','events-updates', ...systemScrollTitleItems]; 
     }
 
     
-    let scrollSpyItems = ['about-space', 'updates-events', 'schedule', 'where-how', 'cord-map', 'messages']; 
 
+    let SystemScrollItems;
+    if(space.schedulesChecks) { 
+      SystemScrollItems = space.schedulesChecks.map(system => {        
+      
+      let subScrollItems = system.components.map(component => component.id)
+
+
+      return (
+        <li key={system.id}>
+          <span className='menu-system'>
+            <a href={`#${system.id}`}>
+            {system.title}
+            </a>  
+
+            <Scrollspy               
+              items={ subScrollItems } 
+              currentClassName="is-current2"
+              offset = { 110 }
+              style={ {fontWeight: 200} }
+              rootEl = {''}
+              scrolledPastClassName={ 'is-past' }
+              >
+
+              {system.components.map(component => { 
+                return (
+                  <li key={component.id} className='menu-component'>
+                    <a href={`#${component.id}`}>
+                      {component.title}
+                    </a>
+                  </li>
+                )
+              })}
+            </Scrollspy>
+          </span>
+        </li>
+      )
+    })
+  }
+
+
+    // console.log(SystemScrollItems)
+    let about, updates, scheduleChecks;
+    if(space.aboutSpace && space.stockPhotos) { 
+      about = <About 
+                about={space.aboutSpace} 
+                hero={space.stockPhotos[0]} 
+                space={space.spaceName}
+                /> 
+    } if (space.updates) { 
+      updates = <UpdatesEvents 
+                updatesEvents={space.updates} 
+                />
+    } if (space.schedulesChecks) { 
+      scheduleChecks = <ScheduleCheck 
+                 systems={space.schedulesChecks}
+                 />
+    }
     return (
 
       <div className='screen'>
@@ -89,69 +101,31 @@ class SpaceTemplate extends React.Component {
 
 
           <div className='main'>
-            {aboutSpace}   
+            {about}
             {updates}
-            {checkSchedule}                                
-            {systems}
-            {cordMapComp}
-            {messages}
+            {scheduleChecks}
+            
+
             
             <div className='end'> </div>           
           </div>
 
-          <Scrollspy 
-            className='sidenav sidenav-layout' 
-            items={ scrollSpyItems } 
-            currentClassName="is-current"
-            offset={ 20 }
-            style={ {fontWeight: 300} }
-            offset={ 600 }
-          >
-
-            <li> 
-              <a href='#about-space'> About {space.spaceName} </a>
-            </li>
-
-
-            <li> 
-              <input type="checkbox" />            
-              <a href='#updates-events'> Updates & Events </a>
-            </li>       
-
-            <li>
-              <a href='#schedule'> Schedule </a>
-            </li>
-
-            <li> 
-              <a href='#where-how'> Where & How To </a>
-            </li>
-            {systemsMenuLink}
-
-            <li> 
-              <a href='#cord-map'> Cord Map </a>
-             </li>
-
-            <li> 
-              <a href='#messages'> Messages </a>
-            </li>
+          <div className='sidenav sidenav-layout' >
+            <h1> Content & Schedule</h1>
+            <Scrollspy 
+              items={ scrollSpyItems } 
+              currentClassName="is-current"
+              style={ {fontWeight: 300} }
+              offset={-250}
+            >
             
-
-
-            <div className='forms-checklist'>
-              <li> Forms & Checklists </li>
-              {formsMenuLink}
-            </div>
-
-            <div className='forms-checklist'>
-              <li> Quick Links </li>
-              <ul> 
-                <li><a>Host App</a></li>
-                <li><a>Slack Channel</a></li>
-              </ul>
+              <li><a href="#theBasics" className='menu-system'>The Basics</a></li>
+              <li><a href="#updatesEvents" className='menu-system'>Updates & Events</a></li>
+              {SystemScrollItems}
               
-            </div>            
+            </Scrollspy>  
             
-          </Scrollspy>          
+          </div>        
 
         </div>  {/*page-container*/}
       </div> /*screen*/
@@ -166,124 +140,129 @@ export default SpaceTemplate
 export const pageQuery = graphql`
 query($id: String!){
   contentfulSpace(id: {eq: $id}) {
-    id
     spaceName
-    linkHostApp
-    linkSlackApp{
-      teamId
-      channelId
-    }    
-    stockPhotos{
-      id
-      fluid(maxWidth: 2000, maxHeight: 1000) {
+    stockPhotos {
+      title
+      fluid{
+        aspectRatio
+        sizes
         ...GatsbyContentfulFluid
       }
     }
-    systems2 {
-      id
-      spaceSystems
-      systemDescription {
+    aboutSpace {
+      childContentfulSpaceInformationDescriptionTextNode {
         childMarkdownRemark {
           html
         }
       }
-      steps {
-        id
-        title
-        photo {
-          id
-          fluid(maxWidth: 800) {
-            ...GatsbyContentfulFluid
-          }
-          fixed(width: 800){
-            ...GatsbyContentfulFixed
-          }
-        }
-        description {
-          childMarkdownRemark {
-            html
-          }
-        }
+      mainAddress {
+        lat
+        lon
       }
-    }
-
-    updates{
-      id
-      title
-      date
-      message{
-        message 
-        childMarkdownRemark{
+      theBasics {
+        childMarkdownRemark {
+          htmlAst
+          rawMarkdownBody
           html
         }
       }
-    }
-    scheduleChecklist{
-      id
-      checklist{
-        childMarkdownRemark{
-          html
-          excerpt
-        }
-      }
-    }
-    aboutSpace{
-      phoneNumber
-      hours{
-        typeDay
-        militaryTime
-        closeMilitaryTime
-        open2MilitaryTime
-        close2MilitaryTime
-      }
-      contacts{
-        id
-        name
-        position
-      }
-      addresses{
-        id
-        type
-        title
-        street{
-          lat
-          lon
-        }
-      }
-      socialMediaLinks{
-        id
+      socialMediaLinks {
         type
         url
       }
-      description{
-        description
-      }
     }
-    
-    forms{
-      id
-      type
-      url
-    }
-    messages {
+    updates{
       id
       title
-      message {
-        id
-        message
+      message{
         childMarkdownRemark{
           html
         }
       }
     }
-    
-    cordMap{
-      fluid(maxWidth: 1000) {
-        ...GatsbyContentfulFluid
+    schedulesChecks {
+      id
+      title
+      description {
+        childMarkdownRemark {
+          html
+        }
       }
-    }    
+      components {
+        ... on ContentfulComponentApi{
+          id
+          title
+          type
+          url
+        }
 
+        ... on ContentfulComponentMessage{
+          id
+          title
+          message {
+            id
+            childMarkdownRemark{
+              html
+            }
+          }
+        }
+        ... on ContentfulComponentLocation{
+          title
+          description{
+            childMarkdownRemark{
+              html
+            }
+          }
+          address{
+            lat
+            lon
+          }
+        }        
+        ... on ContentfulComponentTitleAndText {
+          id
+          title
+          body{
+            childMarkdownRemark{
+              html
+            }
+          }
+        }
+        ... on ContentfulComponentTitleDescriptionPhoto {
+          id
+          title
+          description{
+            childMarkdownRemark{
+              html
+            }
+          }
+          photo {
+            id
+            
+          }
+        } 
+        ... on ContentfulComponentTitleTextPhotos  {
+          id
+          title
+          styleType
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
+          photos {
+            id
+            title
+            description {
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
+
 
 `

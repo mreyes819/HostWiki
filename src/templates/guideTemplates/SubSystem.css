@@ -1,0 +1,14 @@
+div .component{ 
+  margin-top: 1vh;
+  padding-top: 1vh;
+  margin-left: 3vw;
+}
+
+div .component h3{
+  border-bottom: 3px solid yellow;
+} 
+
+.body { 
+  min-height: 10vh;
+   
+}

@@ -1,12 +1,35 @@
+.main h1 { 
+    text-align: center;
+    font-weight: 400;
+}
+
+.main h2 { 
+    border-bottom: 1.25vh solid yellow;
+    background-color: rgb(25,36,41);
+    color: yellow;
+    padding: .7em;
+    font-size: 2.25rem;
+    font-weight: 400;
+}
+
+.main h3 { 
+    font-size: 1.75rem;
+    margin-top: 3vh;
+}
+
+
+.test2 { 
+    
+}
 .screen { 
     height: 100%;
     background-color: rgb(25,36,41);
     /*border-bottom: 1px solid rgb(25,36,41);;*/
 }
 
-.is-current { 
-    font-weight: bold !important;
-}
+
+
+
 
 .page-container { 
     margin: 7vh auto;
@@ -21,6 +44,12 @@
     padding: 0vh 5vw;
     background-color: white;
     /*rgb(25,36,41);*/
+    min-height: 86vh;
+}
+
+section { 
+    margin-bottom: 50vh;
+    padding-bottom: 5vh;
 }
 
 section h2 { 
@@ -67,9 +96,6 @@ section div {
     box-shadow: 0px 0px 7px #000000;*/
     border-bottom: 1px solid grey;
     /*border-radius: 5px;*/
-
-
-
 }
 
 
@@ -89,7 +115,6 @@ section div {
     /*border-radius: 5px;*/
 
 }
-
 
 .updates p{
     padding: 0;
@@ -119,18 +144,15 @@ section div {
 
 
 .end { 
-    margin-bottom: 15vh;
+    margin-bottom: 30vh;
 }
 
 
 
 
 
-h3 { position:relative; }
-h3 span{ position:absolute; top:-9vh;}
 
-h2{position:relative;}
-h2 span{ position:absolute; top:-7.5vh;}
+
 
     
 /* !!!!!!!!!!!!!!!!!!   The sidebar menu    !!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -143,29 +165,60 @@ h2 span{ position:absolute; top:-7.5vh;}
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background-color: rgb(247,247,247);
+    background-color: lightgrey;
+
     overflow-x: hidden; /* Disable horizontal scroll */
     /*padding-right: 10px;*/
-    border-bottom: 7vh solid rgb(25,36,41);
-    padding-top: 2vh;
-    padding-left: 2vw;
-
-    
+    padding-left: 1vw;   
 }
 
-
-.sidenav-layout { 
-    margin-left: 1vw;
-    
-}
 
 .sidenav-layout li { 
-    font-size: 12pt;
+    font-size: 1.4rem;
+    font-weight: 400;
     list-style-type: none;
-    
-    
+    margin: -1px;
+    padding: 0px;
     
 }
+
+
+.sidenav h1 { 
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 5px;
+}
+
+.menu-component a { 
+    padding-left: .75vw;
+
+}
+
+.menu-system { 
+    font-weight: 500;
+    padding-left: .2vw;
+
+}
+
+
+.is-current { 
+    font-weight: bold !important;
+    border-left: 5px solid yellow;
+    padding: .2em !important;
+}
+
+.is-current2 { 
+    font-weight: 600 !important;
+    border-left: 5px solid yellow;
+    padding: .2em !important;
+
+}
+
+
+
+
+
 
 .system-photo { 
     max-height: 50vh;
@@ -175,35 +228,10 @@ h2 span{ position:absolute; top:-7.5vh;}
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
 
 }
-
-
 .forms-checklist { 
     margin-top: 5vh;
     /*border: 3px solid blue;*/
 }
-
-
-
-
-
-
-
-
-
-
-.sidenav-layout h2 { 
-    margin: 10px;
-    font-size: 14pt;
-}
-
-.sidenav-layout ul { 
-    margin-top: 0;
-}
-
-.sidenav-layout li { 
-    margin: -5px;
-}
-
 
 li a { 
     text-decoration: none;
@@ -255,3 +283,20 @@ h2 a {
     }
 }
 
+.sub-system h2 { 
+    position:relative;
+}
+
+.sub-system h2 span { 
+    position:absolute; top:-20vh
+}
+
+h3 { position:relative; }
+h3 span { position:absolute; top:-9vh;}
+
+h2 { position:relative; }
+h2 span { position:absolute; top:-8vh;}
+
+
+h1 { position:relative; }
+h1 span { position:absolute; top:-7vh;}
