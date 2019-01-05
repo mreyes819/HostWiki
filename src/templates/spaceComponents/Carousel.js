@@ -24,31 +24,42 @@ class ControlledCarousel extends React.Component {
 
   render() {
     const { index, direction } = this.state;
-      
+    console.log('data: ', this.props.data)
+
+    let description;
+    if(this.props.data.description) { 
+      description = <div dangerouslySetInnerHTML={{ __html: this.props.data.description.childMarkdownRemark.html}} style={{ padding: '1em'}}/>
+    }    
     return (
+      <div>
+      {description}
       <Carousel
         activeIndex={index}
         direction={direction}
         onSelect={this.handleSelect}
+        
       >
- 
-       {this.props.steps.map(step => { 
+        {this.props.data.photos.map(photo => { 
           let stepDescription;
-          if(step.description) { 
-            stepDescription = <p key={step.id} dangerouslySetInnerHTML={{ __html: step.description.childMarkdownRemark.html }} />
-          }        
-          return(
+          if(photo.description) { 
+            stepDescription = <p key={photo.id} dangerouslySetInnerHTML={{ __html: photo.description.childMarkdownRemark.html }} />
+          }   
+          return (
             <Carousel.Item className='system-photo'>
-              <Img fluid={step.photo.fluid} key={step.photo.id} />
+
               <Carousel.Caption>
-                <h4>{step.title}</h4>
-                {stepDescription}
-              </Carousel.Caption>
-            </Carousel.Item>
+                <h4>{photo.title}</h4>
+                {description}
+              </Carousel.Caption> 
+            </Carousel.Item>           
           )
-       })}
+        })}
+
+
+
 
       </Carousel>
+      </div>
     );
   }
 }

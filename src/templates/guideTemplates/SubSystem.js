@@ -1,5 +1,5 @@
 import React from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './SubSystem.css';
 
 
@@ -7,6 +7,9 @@ import Message from '../../components/spaceGuide/Message';
 import Embed from '../../components/spaceGuide/Embed';
 import Address from '../../components/spaceGuide/Address';
 import TitleText from '../../components/spaceGuide/TitleText';
+import TitleTextPhoto from '../../components/spaceGuide/TitleTextPhoto';
+import Carousel from '../../components/spaceGuide/Carousel';
+
 
 class SubSystem extends React.Component { 
   
@@ -30,17 +33,30 @@ class SubSystem extends React.Component {
               let embed = null;
               let address = null;
               let titleText = null;
-              // console.log('TYPE: ', component.__typename)
+              let titleTextPhoto = null;
+              let photos = null
+              
 
-              if(component.__typename === 'ContentfulComponentMessage') { 
-                message = <Message message={component.message.childMarkdownRemark.html} />
-              } else if (component.__typename === 'ContentfulComponentApi') { 
+              if (component.__typename === 'ContentfulComponentApi') { 
                 embed = <Embed api={component}/>
-              } else if (component.__typename === 'ContentfulComponentAddress') { 
-                address = <Address defaultCenter={component.street}/>
+              } else if(component.__typename === 'ContentfulComponentMessage') { 
+                message = <Message message={component.message.childMarkdownRemark.html} />
+              } else if (component.__typename === 'ContentfulComponentLocation') {
+                address = <Address defaultCenter={component.address}/>
               } else if (component.__typename === 'ContentfulComponentTitleAndText') { 
-                // console.log('TitleText: ', component)
                 titleText= <TitleText titleText={component}/>
+              } else if (component.__typename === 'ContentfulComponentTitleDescriptionPhoto') { 
+                titleTextPhoto = <TitleTextPhoto data={component}/> 
+              } else if (component.__typename === 'ContentfulComponentTitleTextPhotos') { 
+
+                if(component.styleType === 'Photo Grid > Photo, Text, Alt Text') { 
+                  // console.log('Grid: ', component.styleType)
+
+                } else if (component.styleType === 'Photo Carousel > Photo, Caption: Text, Alt Text') { 
+                  // console.log(component)
+                  photos = <Carousel data={component}/> 
+                  
+                }
               }
 
 
@@ -53,6 +69,8 @@ class SubSystem extends React.Component {
                     {embed}
                     {address}
                     {titleText}
+                    {titleTextPhoto}
+                    {photos}
                   </div>
                     
                 </div>

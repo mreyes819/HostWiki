@@ -196,7 +196,7 @@ section div {
 
 
 .is-current { 
-    font-weight: bold !important;
+    font-weight: 600 !important;
     border-left: 5px solid yellow;
     padding: .2em !important;
 }

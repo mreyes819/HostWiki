@@ -19,12 +19,6 @@ class SpaceTemplate extends React.Component {
   render() {
     const space = this.props.data.contentfulSpace;
     let systemScrollTitleItems, scrollSpyItems
-    
-    if(space.schedulesChecks) { 
- 
-    }
-
-    
 
     let SystemScrollItems;
     if(space.schedulesChecks) { 
@@ -113,7 +107,7 @@ class SpaceTemplate extends React.Component {
             <h1> Content & Schedule</h1>
             <Scrollspy 
               items={ scrollSpyItems } 
-              currentClassName="is-current"
+              currentClassName="is-current2"
               style={ {fontWeight: 300} }
               offset={-250}
             >
@@ -236,7 +230,11 @@ query($id: String!){
           }
           photo {
             id
-            
+            fluid {
+              aspectRatio
+              sizes
+              ...GatsbyContentfulFluid
+            }
           }
         } 
         ... on ContentfulComponentTitleTextPhotos  {
@@ -249,6 +247,17 @@ query($id: String!){
             }
           }
           photos {
+            photo {
+              fluid(maxWidth: 700) {
+                ...GatsbyContentfulFluid
+                sizes
+                src
+                srcSet
+              }
+              description
+              title
+              id
+            }
             id
             title
             description {
