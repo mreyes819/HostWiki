@@ -12,10 +12,12 @@ div .component h3{
 
 .body { 
   min-height: 10vh;
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 
+
+/* See subsystem.js. id */
 .sub-system h2 {  
     position: relative;
     

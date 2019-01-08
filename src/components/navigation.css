@@ -7,7 +7,7 @@
     top: 0;
     width: 100vw;
     z-index: 100;
-    font-size: 1em;
+    font-size: .9em;
     /*background-color: rgb(25,36,41);*/
     background-color: white;
 
@@ -85,7 +85,7 @@
     display: none;
     position: absolute;
     top: 7vh;
-    min-width: 140px;
+    min-width: 200px;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }

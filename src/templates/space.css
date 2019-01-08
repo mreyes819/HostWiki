@@ -3,13 +3,12 @@ html {
 }
 
 .main h1 {
-    
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 300 !important;
     margin: 0;
     padding: 1vh;
     background-color: yellow;
-    padding-left: .7em;
+    padding-left: 5vw;
     color: rgb(25, 36, 41);
     text-decoration: underline;
     text-decoration-color: rgb(25, 36, 41);
@@ -19,8 +18,8 @@ html {
     background-color: rgb(25, 36, 41);
     color: white;
     padding: .7em;
-    padding-left: 2em;
-    font-size: 2em;
+    padding-left: 5vw;
+    font-size: 1.5em;
     font-weight: 300;
     text-decoration: underline;
     text-decoration-color: yellow;
@@ -172,7 +171,7 @@ section div {
 .sidenav h1 {
     padding-top: .5em;
     width: 100%;
-    font-size: 1.75em;
+    font-size: 1.5em;
     font-weight: 400;
     margin: 5px;
     color: rgb(25, 36, 41);
@@ -183,7 +182,7 @@ li a {
     text-decoration: none;
     color: rgb(25, 36, 41);
     padding-left: 1vw;
-    font-size: 1.05em;    
+    font-size: 1.0em;    
 }
 
 li a:hover { 

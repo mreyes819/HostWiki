@@ -6,7 +6,7 @@ class UpdatesEvents extends React.Component {
     if(this.props.updatesEvents) { 
       component = this.props.updatesEvents.map(ue => { 
           return (
-            <div key={ue.id} style={{padding:'.25em 4em', fontSize: '1.3em'}}>
+            <div key={ue.id} style={{padding:'.25em 4em', fontSize: '1.2em'}}>
               <h3 style={{}}>{ue.title}</h3>
               <p style={{}}dangerouslySetInnerHTML={{__html:ue.message.childMarkdownRemark.html}} /> 
             </div>
