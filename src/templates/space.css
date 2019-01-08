@@ -4,7 +4,7 @@ html {
 
 .main h1 {
     
-    font-size: 5.5em;
+    font-size: 4em;
     font-weight: 300 !important;
     margin: 0;
     padding: 1vh;
@@ -298,6 +298,7 @@ h3 span {
     top: -9vh;
 }
 
+
 h2 {
     position: relative;
 }
@@ -306,6 +307,7 @@ h2 span {
     position: absolute;
     top: -7vh;
 }
+
 
 h1 {
     position: relative;

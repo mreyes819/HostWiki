@@ -24,8 +24,8 @@ class SubSystem extends React.Component {
 
         return (
 
-          <section key={system.id} id={system.id} className='sub-system'>
-            <h2><span ></span>{system.title}</h2>
+          <section key={system.id} className='sub-system'>
+            <h2><span id={system.id}></span>{system.title}</h2>
             {systemDescription}
             {system.components.map(component => { 
 

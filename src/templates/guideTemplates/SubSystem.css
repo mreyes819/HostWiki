@@ -14,3 +14,14 @@ div .component h3{
   min-height: 10vh;
   font-size: 1.3em;
 }
+
+
+.sub-system h2 {  
+    position: relative;
+    
+}
+
+.sub-system h2 span{  
+    position: absolute;
+    top: -7vh;    
+}
