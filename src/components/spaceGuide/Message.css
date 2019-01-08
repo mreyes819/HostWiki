@@ -1,17 +1,13 @@
 .message-text { 
-  background-color: yellow;
   margin: 10px;
   border-radius: 15px;
   padding: 15px;
   color: black;
   font-weight: 600;
   
+  
 }
 
-.message-container { 
-  
-  
-}
 
 .speech-bubble {
   padding: 1.25em;
@@ -19,6 +15,7 @@
   position: relative;
   background: yellow;
   border-radius: 1.5em;
+  font-size: 1em;
   
 }
 
@@ -26,7 +23,7 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 10%;
+  left: 30%;
   width: 0;
   height: 0;
   border: 20px solid transparent;

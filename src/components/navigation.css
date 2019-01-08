@@ -8,7 +8,9 @@
     width: 100vw;
     z-index: 100;
     font-size: 1em;
-    background-color: rgb(25,36,41);
+    /*background-color: rgb(25,36,41);*/
+    background-color: white;
+
 ;
 /*    border: 2px solid yellow;*/ /*!!!!!!!!!!!!*/
 }
@@ -18,7 +20,7 @@
     width: 100vw;
     margin: 0 auto;
     max-width: 1200px;
-
+    
 }
 
 .nav-layout2 {}
@@ -34,17 +36,19 @@
     display: flex;
     text-decoration: none;
     padding: 0 10px;
-    color: rgb(234,231,228);
+    color: black;
+
     /*border: 1px solid red;*/
     /*!!!!!!!!!!!!*/
 }
-gi
+
 .nav-link:hover {
-    color: grey;
+    color: black;
 }
 
 .home-link {
     margin-left: 4vw;
+    color: black;
 }
 
 #margin-right {
@@ -59,7 +63,7 @@ gi
 
 .active {
     background-color: #4CAF50;
-    color: white;
+    color: black;
 }
 
 
@@ -67,7 +71,7 @@ gi
 
 .dropdown .dropbtn {
     border: none;
-    color: rgb(234,231,228);
+    color: black;
     background-color: inherit;
     font-family: inherit;
 }
@@ -102,7 +106,7 @@ gi
 /* Add a dark background on topnav links and the dropdown button on hover */
 
 .dropdown:hover .dropbtn {
-    color: yellow;
+    color: lightgrey;
 }
 
 

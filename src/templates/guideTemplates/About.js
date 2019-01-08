@@ -8,16 +8,16 @@ class AboutSpace extends React.Component {
   render() { 
     return (
       <section id='about' className='system-main'> 
-        <h1 style={{fontWeight: '30'}}>{this.props.space}</h1>
+        <h1>{this.props.space}</h1>
         <Img fluid={this.props.hero.fluid} />
-        <div dangerouslySetInnerHTML={{ __html: this.props.about.childContentfulSpaceInformationDescriptionTextNode.childMarkdownRemark.html}} style={{ padding: '1em'}}/>
+        <div dangerouslySetInnerHTML={{ __html: this.props.about.childContentfulSpaceInformationDescriptionTextNode.childMarkdownRemark.html}} style={{ padding: '1em 4em', fontSize: '1.3em'}}/>
         
-        <h2><span id="theBasics"></span>The Basics</h2>
+        <h2 style={{margin:'0'}}><span id="theBasics"></span>The Basics</h2>
         <Address defaultCenter={this.props.about.mainAddress} className='main-address2'/>
         <div className='about-basics'>
           
           <div dangerouslySetInnerHTML=
-          {{ __html: this.props.about.theBasics.childMarkdownRemark.html }} style={{ padding: '1em'}}></div>
+          {{ __html: this.props.about.theBasics.childMarkdownRemark.html }} style={{ padding: '.25em 4em', fontSize: '1.3em'}}></div>
         </div>
         
         

@@ -19,7 +19,7 @@ class SubSystem extends React.Component {
       this.props.systems.map(system => { 
         let systemDescription = null
         if(system.description) {
-          systemDescription = <p style={{padding: '1em'}} dangerouslySetInnerHTML={{ __html: system.description.childMarkdownRemark.html}} />
+          systemDescription = <p style={{padding:'2em 4em', fontSize: '1.2em'}} dangerouslySetInnerHTML={{ __html: system.description.childMarkdownRemark.html}} />
         }
 
         return (

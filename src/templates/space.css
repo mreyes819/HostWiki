@@ -1,55 +1,63 @@
-.main h1 { 
-    text-align: center;
-    font-weight: 400;
+html {
+  scroll-behavior: smooth;
 }
 
-.main h2 { 
-    border-bottom: 1.25vh solid yellow;
-    background-color: rgb(25,36,41);
-    color: yellow;
-    padding: .7em;
-    font-weight: 400;
-}
-
-.main h3 { 
+.main h1 {
     
+    font-size: 5.5em;
+    font-weight: 300 !important;
+    margin: 0;
+    padding: 1vh;
+    background-color: yellow;
+    padding-left: .7em;
+    color: rgb(25, 36, 41);
+    text-decoration: underline;
+    text-decoration-color: rgb(25, 36, 41);
+}
+
+.main h2 {
+    background-color: rgb(25, 36, 41);
+    color: white;
+    padding: .7em;
+    padding-left: 2em;
+    font-size: 2em;
+    font-weight: 300;
+    text-decoration: underline;
+    text-decoration-color: yellow;
+}
+
+.main h3 {
     margin-top: 3vh;
 }
 
+.test2 {}
 
-.test2 { 
-    
-}
-.screen { 
+.screen {
     height: 100%;
-    background-color: rgb(25,36,41);
+    background-color: rgb(25, 36, 41);
     /*border-bottom: 1px solid rgb(25,36,41);;*/
 }
 
-
-
-
-
-.page-container { 
+.page-container {
     margin: 7vh auto;
-    width: 100vw; 
-    display: flex;  
+    width: 100vw;
+    display: flex;
     flex-direction: column;
 }
 
 .main {
-    width: 65vw;
-    
-    padding: 0vh 5vw;
+    width: 63vw;
+    padding: 0vh 0vw;
+    /*background-color: rgb(178, 175, 172);*/
     background-color: white;
     min-height: 86vh;
 }
 
-section { 
-    margin-bottom: 50vh;  
+section {
+    margin-bottom: 50vh;
 }
 
-section h2 { 
+section h2 {
     margin: 0;
     padding: 0;
     margin-bottom: 10px;
@@ -57,78 +65,78 @@ section h2 {
     width: 50%;*/
 }
 
-section h3 { 
+section h3 {
     margin: 0;
     padding: 0;
 }
 
-
-section div { 
+section div {
     /* all children divs and their div children*/
 }
 
-.about-photos-container { 
+.about-photos-container {
     margin-bottom: 1vh;
     margin-top: 1vh;
-/*    -moz-box-shadow: 0px 0px 7px #000000;
+    /*    -moz-box-shadow: 0px 0px 7px #000000;
     -webkit-box-shadow: 0px 0px 7px #000000;*/
     /*box-shadow: 0px 0px 7px #000000;*/
     /*border-radius: 5px;*/
 }
 
-.about-photos { 
+.about-photos {
     height: 45.5vh;
     width: 100%;
 }
 
-.updates-events, .system, .schedule, .about, .messages { 
+.updates-events,
+.system,
+.schedule,
+.about,
+.messages {
     padding: 5px;
     margin-bottom: 10vh;
     padding-bottom: 2vh;
     /*background-color: lightgrey;*/
-/*    -moz-box-shadow: 0px 0px 7px #000000;
+    /*    -moz-box-shadow: 0px 0px 7px #000000;
     -webkit-box-shadow: 0px 0px 7px #000000;
     box-shadow: 0px 0px 7px #000000;*/
     border-bottom: 1px solid grey;
     /*border-radius: 5px;*/
 }
 
-
-.description p { 
+.description p {
     margin: 0;
-
 }
 
-.sub-section { 
+.sub-section {
     width: 100%;
     margin-bottom: 5vh;
     /*background-color: lightgrey;*/
-/*    -moz-box-shadow: 0px 0px 7px #000000;
+    /*    -moz-box-shadow: 0px 0px 7px #000000;
     -webkit-box-shadow: 0px 0px 7px #000000;
     box-shadow: 0px 0px 7px #000000;*/
     /*border-bottom: 1px solid grey;*/
     /*border-radius: 5px;*/
-
 }
 
-.updates p{
+.updates p {
     padding: 0;
 }
 
-.updates h3 { 
+.updates h3 {
     padding: 0;
     margin-bottom: 5px;
 }
 
-.section-component { 
-    padding-left: 20px;
+.section-component {
+    padding-left: 50px;
     margin-top: 20px;
     margin-bottom: 50px;
     padding-bottom: 0;
     /*border: 1px solid blue;*/
 }
 
-.section-component h4 { 
+.section-component h4 {
     margin-bottom: 0px;
     /*border: 1px solid blue;*/
 }
@@ -137,75 +145,84 @@ section div {
     padding-left: 25px;
 }
 
-
-.end { 
+.end {
     margin-bottom: 30vh;
 }
 
 
-
-
-
-
-
-
-    
 /* !!!!!!!!!!!!!!!!!!   The sidebar menu    !!!!!!!!!!!!!!!!!!!!!!!!!!*/
-.sidenav {
-    height: 93vh; /* Full-height: remove this if you want "auto" height */
-    margin-top: 7vh;
-    width: 35vw;
-    min-width: 200px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    right: 0;
-    background-color: lightgrey;
 
-    overflow-x: hidden; /* Disable horizontal scroll */
-    /*padding-right: 10px;*/
-    padding-left: 1vw;   
+
+/* Container*/
+.sidenav { 
+    height: 93vh;
+    width: 37vw;
+    min-width: 200px;
+    margin-top: 7vh;
+    padding-left: 1.5%;
+    overflow-x: hidden;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgb(211,211,211);
 }
 
+/* Content & Schedule*/
+.sidenav h1 {
+    padding-top: .5em;
+    width: 100%;
+    font-size: 1.75em;
+    font-weight: 400;
+    margin: 5px;
+    color: rgb(25, 36, 41);
+}
 
+/*All Links*/
+li a { 
+    text-decoration: none;
+    color: rgb(25, 36, 41);
+    padding-left: 1vw;
+    font-size: 1.05em;    
+}
+
+li a:hover { 
+    color: yellow;
+    text-decoration: none;
+}
+
+/*Component Title*/
 .sidenav-layout li { 
     font-weight: 400;
     list-style-type: none;
     margin: -1px;
-    padding: 0px;
-    
-}
-
-
-.sidenav h1 { 
-    width: 100%;
-    font-weight: 500;
-    margin: 5px;
-}
-
-.menu-component a { 
-    padding-left: .75vw;
 
 }
 
-.menu-system { 
-    font-weight: 500;
-    padding-left: .2vw;
+/*System and Component Title Menu*/
+.menu-system {
+    font-weight: 600;
 
 }
 
 
-.is-current { 
+.is-current {
     font-weight: 600 !important;
     border-left: 5px solid yellow;
-    padding: .2em !important;
+    color: yellow;
 }
 
-.is-current2 { 
+.is-current2 {
     font-weight: 600 !important;
     border-left: 5px solid yellow;
-    padding: .2em !important;
+    padding: .1em;
+    padding-left: 0;
+}
 
+
+
+.main_address2 { 
+    height: 50vh;
 }
 
 
@@ -213,82 +230,88 @@ section div {
 
 
 
-.system-photo { 
+
+
+
+
+.system-photo {
     max-height: 50vh;
     height: 100%;
-    
     min-width: 100%;
     box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
-
 }
-.forms-checklist { 
+
+.forms-checklist {
     margin-top: 5vh;
     /*border: 3px solid blue;*/
 }
 
-li a { 
-    text-decoration: none;
-    color: rgb(25,36,41);
-}
-
-h2 a { 
-    text-decoration: none;
-    color: rgb(25,36,41);  
-}
-
-
 @media only screen and (min-width: 1200px) {
-    .system-photo { 
+    .system-photo {
         max-height: 75vh;
     }
-
 }
 
 @media only screen and (max-width: 567px) {
-    .page-container { 
-        width: 100vw; 
-    }    
+    .page-container {
+        width: 100vw;
+    }
     .sidenav {
         display: none;
     }
-    .system { 
+    .system {
         border-radius: 10px;
         border: none;
         padding: 5px;
         margin-top: 0;
     }
-    .main { 
-      width: 100%;
+    .main {
+        width: 100%;
     }
-
     /* Side Navigation  */
-    .sidenav-layout h2 { 
-    margin: -2px;
+    .sidenav-layout h2 {
+        margin: -2px;
     }
-
-    .sidenav-layout ul { 
+    .sidenav-layout ul {
         margin-top: 0;
     }
-
-    .sidenav-layout li { 
+    .sidenav-layout li {
         margin: -5px;
     }
 }
 
-.sub-system h2 { 
-    position:relative;
+.sub-system h2 {
+    position: relative;
 }
 
-.sub-system h2 span { 
-    position:absolute; top:-20vh
+.sub-system h2 span {
+    position: absolute;
+    top: -20vh
 }
 
-h3 { position:relative; }
-h3 span { position:absolute; top:-9vh;}
+h3 {
+    position: relative;
+}
 
-h2 { position:relative; }
-h2 span { position:absolute; top:-8vh;}
+h3 span {
+    position: absolute;
+    top: -9vh;
+}
 
+h2 {
+    position: relative;
+}
 
-h1 { position:relative; }
-h1 span { position:absolute; top:-7vh;}
+h2 span {
+    position: absolute;
+    top: -7vh;
+}
+
+h1 {
+    position: relative;
+}
+
+h1 span {
+    position: absolute;
+    top: -7vh;
+}

@@ -32,10 +32,11 @@ class MapComponent extends React.Component {
         <Iframe 
           url={`https://www.google.com/maps/embed/v1/place?q=place_id:${this.state.place_id}&key=AIzaSyDAs1iNCU5Ovq46wkjGa8q3PSDQMpOvXrg`} 
           width="100%" 
-          height="35vh" 
+          height="40vh" 
           frameborder="0" 
           position='relative'
-          allowfullscreen>
+          allowfullscreen
+          >
         </Iframe>
       </div>
     )

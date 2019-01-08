@@ -40,7 +40,6 @@ class SpaceTemplate extends React.Component {
                 items={ subScrollItems } 
                 currentClassName="is-current2"
                 offset = { 110 }
-                style={ {fontWeight: 200} }
                 rootEl = {''}
                 scrolledPastClassName={ 'is-past' }
                 >
@@ -108,7 +107,6 @@ class SpaceTemplate extends React.Component {
             <Scrollspy 
               items={ scrollSpyItems } 
               currentClassName="is-current2"
-              style={ {fontWeight: 300} }
               offset={-250}
             >
             
