@@ -196,6 +196,7 @@ query($id: String!){
           }
         }
         ... on ContentfulComponentLocation{
+          id
           title
           description{
             childMarkdownRemark{
