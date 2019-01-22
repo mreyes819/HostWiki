@@ -4,11 +4,11 @@ import './SubSystem.css';
 
 
 import Message from '../../components/spaceGuide/Message';
-import Embed from '../../components/spaceGuide/Embed';
+import NewTab from '../../components/spaceGuide/NewTab';
 import Address from '../../components/spaceGuide/Address';
 import TitleText from '../../components/spaceGuide/TitleText';
 import TitleTextPhoto from '../../components/spaceGuide/TitleTextPhoto';
-import Carousel from '../../components/spaceGuide/Carousel';
+import Carousel from '../spaceComponents/Carousel2';
 
 
 class SubSystem extends React.Component { 
@@ -35,10 +35,12 @@ class SubSystem extends React.Component {
               let titleText = null;
               let titleTextPhoto = null;
               let photos = null
+              let tab = null;
               
 
               if (component.__typename === 'ContentfulComponentApi') { 
-                embed = <Embed api={component}/>
+                // embed = <Embed api={component}/>
+                tab = <NewTab api={component} /> 
               } else if(component.__typename === 'ContentfulComponentMessage') { 
                 message = <Message message={component.message.childMarkdownRemark.html} />
               } else if (component.__typename === 'ContentfulComponentLocation') {
@@ -48,13 +50,13 @@ class SubSystem extends React.Component {
               } else if (component.__typename === 'ContentfulComponentTitleDescriptionPhoto') { 
                 titleTextPhoto = <TitleTextPhoto data={component}/> 
               } else if (component.__typename === 'ContentfulComponentTitleTextPhotos') { 
-
+                photos = <Carousel data={component}/> 
                 if(component.styleType === 'Photo Grid > Photo, Text, Alt Text') { 
                   // console.log('Grid: ', component.styleType)
 
                 } else if (component.styleType === 'Photo Carousel > Photo, Caption: Text, Alt Text') { 
                   // console.log(component)
-                  photos = <Carousel data={component}/> 
+                  
                   
                 }
               }
@@ -66,7 +68,7 @@ class SubSystem extends React.Component {
                   <h3><span id={component.id}></span>{component.title}</h3>
                   <div className='body'>
                     {message}
-                    {embed}
+                    {tab}
                     {address}
                     {titleText}
                     {titleTextPhoto}

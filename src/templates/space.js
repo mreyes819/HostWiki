@@ -251,6 +251,7 @@ query($id: String!){
                 src
                 srcSet
               }
+              
               description
               title
               id

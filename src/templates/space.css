@@ -211,7 +211,8 @@ li a:hover {
 .sidenav-layout li { 
     font-weight: 400;
     list-style-type: none;
-    margin: -4px;
+    margin: -3px;
+    padding: 0;
 
 }
 
@@ -231,7 +232,7 @@ li a:hover {
 .is-current2 {
     font-weight: 600 !important;
     border-left: 5px solid yellow;
-    padding: .1em;
+    padding: 5em;
     padding-left: 0;
 }
 

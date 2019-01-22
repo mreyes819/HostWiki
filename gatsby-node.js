@@ -33,7 +33,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allContentfulSpace.edges.forEach(edge => { 
         let citySlug = edge.node.city.toLowerCase().split(' ').join('-');
         createPage({
-          path: `/${citySlug}/${edge.node.slug}/`,
+          path: `/${citySlug}/${edge.node.slug}`,
           component: slash(spaceTemplate),
           context: { 
             id: edge.node.id

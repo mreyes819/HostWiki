@@ -2,7 +2,6 @@ import React from 'react';
 import Img from "gatsby-image"
 import { Carousel} from 'react-bootstrap';
 
-
 class ControlledCarousel extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -28,7 +27,9 @@ class ControlledCarousel extends React.Component {
     let description;
     if(this.props.data.description) { 
       description = <div dangerouslySetInnerHTML={{ __html: this.props.data.description.childMarkdownRemark.html}} style={{ padding: '1em'}}/>
-    }    
+    } 
+    
+
     return (
       <div>
         {description}
@@ -36,35 +37,33 @@ class ControlledCarousel extends React.Component {
           activeIndex={index}
           direction={direction}
           onSelect={this.handleSelect}
-          
         >
           {this.props.data.photos.map(photo => { 
-            let stepDescription, fluid, fixed, width, src;
-            if(photo.photo) { 
-              fluid = photo.photo.fluid
-              fixed = photo.photo.fixed
-              width = photo.photo.width
-              src = photo.photo.src
-            }
+            let stepDescription, fluid,image
             if(photo.description) { 
-              stepDescription = <p key={photo.id} dangerouslySetInnerHTML={{ __html: photo.description.childMarkdownRemark.html }} />
+              stepDescription = <p dangerouslySetInnerHTML={{ __html: photo.description.childMarkdownRemark.html}} style={{ padding: '1em'}}/>
             }
-
+            if(photo.photo) {             
+              image = <Img fluid={photo.photo.fluid} style={{height: '50vh'}}/>
+            }
             return (
-              <Carousel.Item className='system-photo'>
-                <img fixed={fixed} width={width} src={src} className='carousel-photo'/>
+              <Carousel.Item>
+                
+                {image}
                 <Carousel.Caption>
-                  <h4>{photo.title}</h4>
-                  {description}
-                </Carousel.Caption> 
-              </Carousel.Item>           
+                  <h3>{photo.title}</h3>
+                  {stepDescription}
+                </Carousel.Caption>
+              </Carousel.Item>
             )
           })}
+
+
+
         </Carousel>
       </div>
     );
   }
 }
-
 
 export default ControlledCarousel;

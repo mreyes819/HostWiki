@@ -40,23 +40,11 @@ class Embed extends React.Component {
     return (
 
       <div className='embed-container'> 
-        <button onClick={this.handleShow} className='embed-button'>
+        <button className='embed-button'>
           {this.props.api.title}
+          <a>
         </button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Body>
-           <Iframe 
-              url={this.props.api.url}
-              width="100%"
-              height={height}
-              position="relative"
-            />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.handleClose}>Close</Button>
-          </Modal.Footer>
-        </Modal>
       </div>
     );
   }
